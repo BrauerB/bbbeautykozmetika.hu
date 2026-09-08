@@ -2015,10 +2015,17 @@ button {
 }
 
 .price-subcard {
-  background: var(--bg-subtle);
+  background: var(--bg-surface);
   border-radius: 18px;
   border: 1px solid var(--border-card);
   padding: 24px;
+  box-shadow: var(--shadow-sm);
+  transition: all var(--tr-normal);
+}
+
+.price-subcard:hover {
+  border-color: rgba(184, 110, 94, 0.28);
+  box-shadow: var(--shadow-md);
 }
 
 .price-subtitle {
