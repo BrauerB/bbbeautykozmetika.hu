@@ -1,0 +1,1156 @@
+<!DOCTYPE html>
+<html lang="hu">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BB Beauty | Személyre Szabott Arckezelések & Bőrápolás · Szigetszentmiklós</title>
+  <meta name="description"
+    content="BB Beauty Kozmetika Szigetszentmiklóson: személyre szabott arckezelések, tudatos bőrápolás és őszinte szakmai tanácsadás a Miklós Plázában (Ifjúság útja 16.). Barna Bettina kozmetikus.">
+  <meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body id="top">
+
+  <!-- ================= HEADER & NAVIGATION ================= -->
+  <header class="site-header">
+    <div class="container">
+      <nav class="navbar">
+        <a href="#top" class="brand-logo" title="BB Beauty - Vissza a tetejére">
+          <img src="images/bbLogo.webp" alt="BB Beauty Logo" class="brand-logo-img">
+        </a>
+
+        <!-- Főmenü: Kezelések, Ismerj meg & Stúdió, Árak, Eredmények, Kapcsolat -->
+        <ul class="nav-links">
+          <li><a href="#kezelesek" class="nav-link">Kezelések</a></li>
+          <li><a href="rolam.html" class="nav-link">Ismerj meg & Stúdió</a></li>
+          <li><a href="arak.html" class="nav-link">Árak</a></li>
+          <li><a href="#eredmenyek" class="nav-link">Eredmények</a></li>
+          <li><a href="#kapcsolat" class="nav-link">Kapcsolat</a></li>
+        </ul>
+
+        <div class="nav-actions">
+          <button class="btn btn-primary btn-sm" data-open-modal data-service="Személyre Szabott Konzultáció & Kezelés">
+            Időpontfoglalás
+          </button>
+          <button class="hamburger-btn" aria-label="Menü megnyitása">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="drawer-backdrop"></div>
+  <div class="mobile-nav-drawer" aria-hidden="true">
+    <div class="drawer-header">
+      <img src="images/bbLogo.webp" alt="BB Beauty Logo"
+        style="height: 52px; width: auto; object-fit: contain;">
+      <button class="drawer-close-btn" aria-label="Menü bezárása">&times;</button>
+    </div>
+    <ul class="drawer-links">
+      <li><a href="#kezelesek">Kezelések</a></li>
+      <li><a href="rolam.html">Ismerj meg & Stúdió</a></li>
+      <li><a href="arak.html">Árak</a></li>
+      <li><a href="#eredmenyek">Eredmények</a></li>
+      <li><a href="#arcdiagnosztika">Arcdiagnosztika</a></li>
+      <li><a href="#gyik">GYIK</a></li>
+      <li><a href="#kapcsolat">Kapcsolat</a></li>
+    </ul>
+    <div style="margin-top: auto; padding-top: 24px;">
+      <button class="btn btn-primary" style="width: 100%;" data-open-modal data-service="Általános Időpontfoglalás">
+        Időpontfoglalás
+      </button>
+    </div>
+  </div>
+
+  <!-- ================= 1. HERO SECTION ================= -->
+  <section class="hero-section" id="hero">
+    <div class="container">
+      <div class="hero-grid">
+        <div class="hero-content">
+          <div class="hero-tag">BB Beauty · Szigetszentmiklós</div>
+          <h1 class="hero-title">
+            A ragyogó bőr <em>nem véletlen.</em>
+          </h1>
+          <p class="hero-subtitle">
+            Személyre szabott arckezelések a bőröd valódi igényeire.
+          </p>
+          <p class="hero-lead">
+            Hiszek abban, hogy nincs két egyforma bőr, ezért nálam minden kezelés a bőröd aktuális állapotához és egyéni
+            igényeihez igazodik.
+          </p>
+
+          <div class="hero-actions">
+            <button class="btn btn-primary" data-open-modal data-service="Konzultáció & Személyre Szabott Kezelés">
+              Időpontot foglalok
+            </button>
+            <a href="#kezelesek" class="btn btn-outline">
+              Kezelések megtekintése
+            </a>
+          </div>
+        </div>
+
+        <div class="hero-visual">
+          <div class="portrait-card">
+            <!-- Váltakozó Képgaléria (Hero Slider) -->
+            <div class="hero-slider-frame" id="heroSlider">
+              <div class="hero-slide active">
+                <img src="images/hero-slide-1.webp" alt="BB Beauty - Professzionális tálkeverés és hatóanyagok" width="600" height="450" loading="eager">
+              </div>
+              <div class="hero-slide">
+                <img src="images/hero-slide-2.webp" alt="BB Beauty - Exkluzív kezelőágy és szalonkörnyezet" width="600" height="450" loading="lazy">
+              </div>
+              <div class="hero-slide">
+                <img src="images/hero-slide-3.webp" alt="BB Beauty - Barna Bettina kozmetikus a kezelőágynál" width="600" height="450" loading="lazy">
+              </div>
+              <!-- Pontos vezérlők -->
+              <div class="hero-slider-dots" id="heroSliderDots">
+                <button class="hero-dot active" aria-label="1. kép (Hatóanyagok)"></button>
+                <button class="hero-dot" aria-label="2. kép (Kezelőágy)"></button>
+                <button class="hero-dot" aria-label="3. kép (Kozmetikus)"></button>
+              </div>
+            </div>
+            <div class="hero-location-pill">
+              <div class="location-dot"></div>
+              <span>Exkluzív stúdiókörnyezet · Miklós Pláza, 1. emelet</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 2. KEZELÉSEK (TOP 4 KÉPES KÁRTYA & TELJES KATALÓGUS) ================= -->
+  <section class="site-section section-alt" id="kezelesek">
+    <div class="container">
+      <div class="section-head-center">
+        <h2 class="section-title-large">Kiemelt Kezelések</h2>
+        <p class="section-desc">
+          A bőröd igényeihez igazítva. Célzott rituálék a tiszta, hidratált és élettel teli bőrért.
+        </p>
+      </div>
+
+      <!-- Top 4 Képes Kezelési Kártyák (hasonlóan mint a V6-ban) -->
+      <div class="v8-top-grid">
+        <!-- 1. Mélytisztító arckezelés -->
+        <div class="v8-top-card">
+          <div class="v8-top-img-wrap">
+            <img src="images/szepitke-melytisztito-arckezeles.webp" alt="Mélytisztító arckezelés" loading="lazy">
+            <span class="v8-top-badge">Top Választás</span>
+          </div>
+          <div class="v8-top-body">
+            <div>
+              <span class="v8-top-num">01 / TISZTÍTÁS</span>
+              <h3 class="v8-top-title">Mélytisztító arckezelés</h3>
+              <p class="v8-top-desc">Alapos, mégis kíméletes pórustisztítás a mitesszeres, tisztátalan bőrkép megújítására.</p>
+            </div>
+            <div class="v8-top-footer">
+              <div class="v8-top-meta">
+                <span class="v8-top-duration">⏱ 90–120 perc</span>
+                <span class="v8-top-price">18 500 Ft-tól</span>
+              </div>
+              <button class="btn-detail-link btn-treatment-detail" data-id="melytisztito-arckezeles">
+                Részletek →
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. Mélyhidratáló Glow kezelés -->
+        <div class="v8-top-card">
+          <div class="v8-top-img-wrap">
+            <img src="images/szepitke-melyhidralato-glow.webp" alt="Mélyhidratáló Glow kezelés" loading="lazy">
+            <span class="v8-top-badge">Hidratálás & Glow</span>
+          </div>
+          <div class="v8-top-body">
+            <div>
+              <span class="v8-top-num">02 / HIDRATÁLÁS</span>
+              <h3 class="v8-top-title">Mélyhidratáló Glow kezelés</h3>
+              <p class="v8-top-desc">Többszintű hialuronsavas feltöltés a száraz, feszülő vagy fakó bőr természetes ragyogásáért.</p>
+            </div>
+            <div class="v8-top-footer">
+              <div class="v8-top-meta">
+                <span class="v8-top-duration">⏱ 60–90 perc</span>
+                <span class="v8-top-price">18 500 Ft-tól</span>
+              </div>
+              <button class="btn-detail-link btn-treatment-detail" data-id="melyhidralato-glow">
+                Részletek →
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3. Anti-aging feszesítő kezelés -->
+        <div class="v8-top-card">
+          <div class="v8-top-img-wrap">
+            <img src="images/szepitke-anti-aging-feszesito.webp" alt="Anti-aging feszesítő kezelés" loading="lazy">
+            <span class="v8-top-badge">Anti-Aging & Lifting</span>
+          </div>
+          <div class="v8-top-body">
+            <div>
+              <span class="v8-top-num">03 / ANTI-AGING</span>
+              <h3 class="v8-top-title">Anti-aging feszesítő kezelés</h3>
+              <p class="v8-top-desc">Biomimetikus peptidekkel és lifting masszázzsal a tónusosabb, feszesebb arcképért.</p>
+            </div>
+            <div class="v8-top-footer">
+              <div class="v8-top-meta">
+                <span class="v8-top-duration">⏱ 60–90 perc</span>
+                <span class="v8-top-price">22 500 Ft-tól</span>
+              </div>
+              <button class="btn-detail-link btn-treatment-detail" data-id="anti-aging-feszesito">
+                Részletek →
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4. Problémás bőr kezelése -->
+        <div class="v8-top-card">
+          <div class="v8-top-img-wrap">
+            <img src="images/szepitke-problemas-bor-kezeles.webp" alt="Problémás bőr kezelése" loading="lazy">
+            <span class="v8-top-badge">Kiegyensúlyozás</span>
+          </div>
+          <div class="v8-top-body">
+            <div>
+              <span class="v8-top-num">04 / KIEGYENSÚLYOZÁS</span>
+              <h3 class="v8-top-title">Problémás bőr kezelése</h3>
+              <p class="v8-top-desc">Gyulladáscsökkentő, faggyúszabályozó ápolás mitesszeres, aknéra hajlamos bőrre.</p>
+            </div>
+            <div class="v8-top-footer">
+              <div class="v8-top-meta">
+                <span class="v8-top-duration">⏱ 60–90 perc</span>
+                <span class="v8-top-price">18 500 Ft-tól</span>
+              </div>
+              <button class="btn-detail-link btn-treatment-detail" data-id="problemas-bor-kezeles">
+                Részletek →
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Összes kezelés megtekintése Gomb -->
+      <div style="text-align: center;">
+        <button id="toggleCatalogBtn" class="btn btn-primary">
+          Összes kezelés megtekintése ↓
+        </button>
+      </div>
+
+      <!-- Lenyíló / Részletes Katalógus Blokk (9 Kezelés Kategória Szűrőkkel) -->
+      <div id="catalogWrap" class="treatments-catalog-wrap" style="display: none;">
+        <div class="filter-tabs-bar">
+          <button class="filter-tab-btn active" data-filter="all">Összes Kezelés</button>
+          <button class="filter-tab-btn" data-filter="cleansing">Mélytisztítás</button>
+          <button class="filter-tab-btn" data-filter="glow">Hidratálás & Glow</button>
+          <button class="filter-tab-btn" data-filter="antiaging">Anti-aging & Feszesítés</button>
+          <button class="filter-tab-btn" data-filter="problemas">Problémás Bőr</button>
+          <button class="filter-tab-btn" data-filter="sensitive">Érzékeny Bőr</button>
+          <button class="filter-tab-btn" data-filter="special">Gépi Kezelések</button>
+        </div>
+
+        <div class="treatments-grid">
+          <!-- 1. Mélytisztító arckezelés -->
+          <div class="treatment-card-item" data-category="cleansing">
+            <div class="treatment-img-wrap">
+              <img src="images/szepitke-melytisztito-arckezeles.webp" alt="Mélytisztító arckezelés" loading="lazy">
+              <span class="treatment-badge-tag">Mélytisztítás</span>
+            </div>
+            <div class="treatment-body">
+              <div>
+                <h3 class="treatment-title">Mélytisztító arckezelés</h3>
+                <p class="treatment-desc">Alapos, mégis kíméletes pórustisztítás a mitesszeres, tisztátalan bőrkép megújítására.</p>
+              </div>
+              <div class="treatment-footer">
+                <div class="treatment-meta-info">
+                  <span class="treatment-duration">⏱ 90–120 perc</span>
+                  <span class="treatment-price">18 500 Ft-tól</span>
+                </div>
+                <button class="btn-detail-link btn-treatment-detail" data-id="melytisztito-arckezeles">Részletek →</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- 2. Mélyhidratáló Glow kezelés -->
+          <div class="treatment-card-item" data-category="glow">
+            <div class="treatment-img-wrap">
+              <img src="images/szepitke-melyhidralato-glow.webp" alt="Mélyhidratáló Glow kezelés" loading="lazy">
+              <span class="treatment-badge-tag">Hidratálás</span>
+            </div>
+            <div class="treatment-body">
+              <div>
+                <h3 class="treatment-title">Mélyhidratáló Glow kezelés</h3>
+                <p class="treatment-desc">Többszintű hialuronsavas feltöltés a száraz, feszülő vagy fakó bőr természetes ragyogásáért.</p>
+              </div>
+              <div class="treatment-footer">
+                <div class="treatment-meta-info">
+                  <span class="treatment-duration">⏱ 60–90 perc</span>
+                  <span class="treatment-price">18 500 Ft-tól</span>
+                </div>
+                <button class="btn-detail-link btn-treatment-detail" data-id="melyhidralato-glow">Részletek →</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- 3. Anti-aging feszesítő kezelés -->
+          <div class="treatment-card-item" data-category="antiaging">
+            <div class="treatment-img-wrap">
+              <img src="images/szepitke-anti-aging-feszesito.webp" alt="Anti-aging feszesítő kezelés" loading="lazy">
+              <span class="treatment-badge-tag">Anti-Aging</span>
+            </div>
+            <div class="treatment-body">
+              <div>
+                <h3 class="treatment-title">Anti-aging feszesítő kezelés</h3>
+                <p class="treatment-desc">Biomimetikus peptidekkel és lifting masszázzsal a tónusosabb, feszesebb arcképért.</p>
+              </div>
+              <div class="treatment-footer">
+                <div class="treatment-meta-info">
+                  <span class="treatment-duration">⏱ 60–90 perc</span>
+                  <span class="treatment-price">22 500 Ft-tól</span>
+                </div>
+                <button class="btn-detail-link btn-treatment-detail" data-id="anti-aging-feszesito">Részletek →</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- 4. Problémás bőr célzott kezelése -->
+          <div class="treatment-card-item" data-category="problemas">
+            <div class="treatment-img-wrap">
+              <img src="images/szepitke-problemas-bor-kezeles.webp" alt="Problémás bőr célzott kezelése" loading="lazy">
+              <span class="treatment-badge-tag">Kiegyensúlyozás</span>
+            </div>
+            <div class="treatment-body">
+              <div>
+                <h3 class="treatment-title">Problémás bőr kezelése</h3>
+                <p class="treatment-desc">Gyulladáscsökkentő, faggyúszabályozó ápolás mitesszeres, aknéra hajlamos bőrre.</p>
+              </div>
+              <div class="treatment-footer">
+                <div class="treatment-meta-info">
+                  <span class="treatment-duration">⏱ 60–90 perc</span>
+                  <span class="treatment-price">18 500 Ft-tól</span>
+                </div>
+                <button class="btn-detail-link btn-treatment-detail" data-id="problemas-bor-kezeles">Részletek →</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- 5. Érzékeny bőr nyugtató rituálé -->
+          <div class="treatment-card-item" data-category="sensitive">
+            <div class="treatment-img-wrap">
+              <img src="images/szepitke-erzekeny-bor-nyugtato.webp" alt="Érzékeny bőr nyugtató rituálé" loading="lazy">
+              <span class="treatment-badge-tag">Bőrbarrier</span>
+            </div>
+            <div class="treatment-body">
+              <div>
+                <h3 class="treatment-title">Érzékeny bőr nyugtató rituálé</h3>
+                <p class="treatment-desc">Kifejezetten irritált, reaktív vagy kipirosodásra hajlamos arcbőr kíméletes megnyugtatása.</p>
+              </div>
+              <div class="treatment-footer">
+                <div class="treatment-meta-info">
+                  <span class="treatment-duration">⏱ 60–90 perc</span>
+                  <span class="treatment-price">21 500 Ft-tól</span>
+                </div>
+                <button class="btn-detail-link btn-treatment-detail" data-id="erzekeny-bor-nyugtato">Részletek →</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- 6. Tű nélküli mezoterápia -->
+          <div class="treatment-card-item" data-category="special">
+            <div class="treatment-img-wrap">
+              <img src="images/szepitke-tu-nelkuli-mezoterapia.webp" alt="Tű nélküli mezoterápia" loading="lazy">
+              <span class="treatment-badge-tag">Elektroporáció</span>
+            </div>
+            <div class="treatment-body">
+              <div>
+                <h3 class="treatment-title">Tű nélküli mezoterápia</h3>
+                <p class="treatment-desc">Modern elektroporációs kezelés tűszúrás nélkül, steril orvosi hatóanyag-bevitellel.</p>
+              </div>
+              <div class="treatment-footer">
+                <div class="treatment-meta-info">
+                  <span class="treatment-duration">⏱ 60 perc</span>
+                  <span class="treatment-price">22 000 Ft</span>
+                </div>
+                <button class="btn-detail-link btn-treatment-detail" data-id="tu-nelkuli-mezoterapia">Részletek →</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- 7. Carboxy Therapy -->
+          <div class="treatment-card-item" data-category="special">
+            <div class="treatment-img-wrap">
+              <img src="images/szepitke-carboxy-therapy.webp" alt="Carboxy Therapy megújító kezelés" loading="lazy">
+              <span class="treatment-badge-tag">Oxigénterápia</span>
+            </div>
+            <div class="treatment-body">
+              <div>
+                <h3 class="treatment-title">Carboxy Therapy</h3>
+                <p class="treatment-desc">Szén-dioxid-alapú kezelés a mikrokeringés felpezsdítésére és a bőrlégzés támogatására.</p>
+              </div>
+              <div class="treatment-footer">
+                <div class="treatment-meta-info">
+                  <span class="treatment-duration">⏱ 60 perc</span>
+                  <span class="treatment-price">22 000 Ft</span>
+                </div>
+                <button class="btn-detail-link btn-treatment-detail" data-id="carboxy-therapy">Részletek →</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- 8. Hamupipőke Express -->
+          <div class="treatment-card-item" data-category="glow">
+            <div class="treatment-img-wrap">
+              <img src="images/szepitke-hamupipoke-expressz.webp" alt="Hamupipőke Express" loading="lazy">
+              <span class="treatment-badge-tag">Expressz Glow</span>
+            </div>
+            <div class="treatment-body">
+              <div>
+                <h3 class="treatment-title">Hamupipőke Express</h3>
+                <p class="treatment-desc">Gyors bőrfelfrissítés fontos esemény előtt az azonnali, üde és sima ragyogásért.</p>
+              </div>
+              <div class="treatment-footer">
+                <div class="treatment-meta-info">
+                  <span class="treatment-duration">⏱ 30 perc</span>
+                  <span class="treatment-price">15 000 Ft</span>
+                </div>
+                <button class="btn-detail-link btn-treatment-detail" data-id="hamupipoke-expressz">Részletek →</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- 9. Kombinált bőr kezelése -->
+          <div class="treatment-card-item" data-category="problemas">
+            <div class="treatment-img-wrap">
+              <img src="images/szepitke-kombinalt-bor-kezeles.webp" alt="Kombinált bőr kezelése" loading="lazy">
+              <span class="treatment-badge-tag">Kombinált</span>
+            </div>
+            <div class="treatment-body">
+              <div>
+                <h3 class="treatment-title">Kombinált bőr kezelése</h3>
+                <p class="treatment-desc">Kiegyensúlyozó ápolás a zsírosabb T-zóna mattítására és az orcák mélyhidratálására.</p>
+              </div>
+              <div class="treatment-footer">
+                <div class="treatment-meta-info">
+                  <span class="treatment-duration">⏱ 60–90 perc</span>
+                  <span class="treatment-price">18 500 Ft-tól</span>
+                </div>
+                <button class="btn-detail-link btn-treatment-detail" data-id="kombinalt-bor-kezeles">Részletek →</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= 3. ARCDIAGNOSZTIKA ================= -->
+  <section class="diagnostics-section" id="arcdiagnosztika">
+    <div class="container">
+      <div class="diagnostics-grid">
+        <div>
+          <h2 class="diagnostics-headline">
+            Nem találgatok. Megnézem, mire van szüksége a bőrödnek.
+          </h2>
+          <p class="diagnostics-text">
+            Az első találkozáskor felmérem a bőröd aktuális állapotát, és ennek alapján javaslom a számodra megfelelő
+            kezelést és otthoni rutint.
+          </p>
+          <div class="diagnostics-quote-line">
+            „Mert nem mindig az a legjobb kezelés, amit eredetileg elképzeltél – hanem az, amire a bőrödnek valóban
+            szüksége van.”
+          </div>
+
+          <button class="btn btn-primary" data-open-modal
+            data-service="Arcdiagnosztika & Személyre Szabott Konzultáció">
+            Időpontot kérek
+          </button>
+        </div>
+
+        <div class="diagnostics-card">
+          <h3 style="font-family: var(--font-serif); font-size: 1.35rem; color: var(--text-main); margin-bottom: 20px;">
+            A konzultáció 3 lépése
+          </h3>
+          <div class="diag-steps-list">
+            <div class="diag-step-item">
+              <div class="diag-step-num">1</div>
+              <div>
+                <div class="diag-step-title">Állapotfelmérés & életmód átbeszélése</div>
+                <div class="diag-step-desc">Megvizsgáljuk a bőr hidratáltságát, pórusait, barrierjét és a jelenlegi
+                  otthoni szokásaidat.</div>
+              </div>
+            </div>
+
+            <div class="diag-step-item">
+              <div class="diag-step-num">2</div>
+              <div>
+                <div class="diag-step-title">Személyre szabott kezelési terv</div>
+                <div class="diag-step-desc">Kiválasztjuk a leginkább célravezető hatóanyagokat és kíméletes
+                  szalonkezelési lépéseket.</div>
+              </div>
+            </div>
+
+            <div class="diag-step-item">
+              <div class="diag-step-num">3</div>
+              <div>
+                <div class="diag-step-title">Otthoni rutin kialakítása</div>
+                <div class="diag-step-desc">Átlátható, könnyen tartható napi útmutatót kapsz a tartós eredmények
+                  fenntartásához.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 4. EREDMÉNYEK (BEFORE/AFTER SLIDER) ================= -->
+  <section class="site-section" id="eredmenyek">
+    <div class="container">
+      <div class="section-head-center">
+        <h2 class="section-title-large">Eredmények</h2>
+        <div class="results-subheading">
+          A változás a bőrödön látszik.
+        </div>
+        <p class="section-desc">
+          Minden bőr más. Minden eredmény egy személyre szabott folyamat része.
+        </p>
+      </div>
+
+      <div class="results-showcase">
+        <!-- Esettanulmány fülek (4 Valós Előtte-Utána Eredmény) -->
+        <div class="case-tabs-bar">
+          <button class="case-tab-btn active" data-index="0">01. Mélytisztítás</button>
+          <button class="case-tab-btn" data-index="1">02. Anti-Aging & Feszesítés</button>
+          <button class="case-tab-btn" data-index="2">03. Szempilla lifting</button>
+          <button class="case-tab-btn" data-index="3">04. Szemöldök laminálás</button>
+        </div>
+
+        <!-- 1. Slide: Mélytisztítás -->
+        <div class="case-slide active" data-index="0">
+          <div class="ba-slider-container">
+            <div class="ba-img after">
+              <img src="images/eredmeny-melytisztitas-utana.webp" alt="Mélytisztítás után">
+              <span class="ba-tag tag-after">Utána</span>
+            </div>
+            <div class="ba-img before">
+              <img src="images/eredmeny-melytisztitas-elotte.webp" alt="Mélytisztítás előtt">
+              <span class="ba-tag tag-before">Előtte</span>
+            </div>
+            <div class="ba-slider-handle">
+              <div class="ba-handle-btn">↔</div>
+            </div>
+          </div>
+
+          <div class="case-info-content">
+            <span class="case-badge">1 kezelés után</span>
+            <h3 class="case-title">Mélytisztító & Pórustisztító Kezelés</h3>
+            <p class="case-text">
+              A kíméletes felpuhítás és az alapos pórustisztítás révén a mitesszerek és eltömődések megszűntek, a pórusok finomodtak, a bőrfelszín azonnal üde, tiszta és sima textúrájúvá vált.
+            </p>
+            <div class="case-points">
+              <div class="case-point-item">Mitesszerek és felesleges faggyú maradéktalan eltávolítása</div>
+              <div class="case-point-item">Láthatóan tisztább, mattabb és simább bőrkép</div>
+            </div>
+            <div>
+              <button class="btn btn-primary btn-sm" data-open-modal data-service="Mélytisztító arckezelés">
+                Időpontot foglalok
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. Slide: Anti-aging -->
+        <div class="case-slide" data-index="1">
+          <div class="ba-slider-container">
+            <div class="ba-img after">
+              <img src="images/eredmeny-antiaging-utana.webp" alt="Anti-aging peptides feszesítés után">
+              <span class="ba-tag tag-after">Utána</span>
+            </div>
+            <div class="ba-img before">
+              <img src="images/eredmeny-antiaging-elotte.webp" alt="Anti-aging kezelés előtt">
+              <span class="ba-tag tag-before">Előtte</span>
+            </div>
+            <div class="ba-slider-handle">
+              <div class="ba-handle-btn">↔</div>
+            </div>
+          </div>
+
+          <div class="case-info-content">
+            <span class="case-badge">Kezelés után</span>
+            <h3 class="case-title">Anti-Aging Peptides Feszesítés</h3>
+            <p class="case-text">
+              A biomimetikus peptidek és a célzott lifting masszázs hatására a finom mimikai vonalak kisimultak, a bőr tónusosabb, feszesebb, hidratáltabb és élettel teli lett.
+            </p>
+            <div class="case-points">
+              <div class="case-point-item">Mimikai vonalak és ráncok látható finomodása</div>
+              <div class="case-point-item">Feszesebb arckontúr, feltöltött és ragyogó bőr</div>
+            </div>
+            <div>
+              <button class="btn btn-primary btn-sm" data-open-modal data-service="Anti-aging feszesítő kezelés">
+                Időpontot foglalok
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3. Slide: Szempilla lifting -->
+        <div class="case-slide" data-index="2">
+          <div class="ba-slider-container">
+            <div class="ba-img after">
+              <img src="images/eredmeny-szempillalifting-utana.webp" alt="Szempilla lifting és festés után">
+              <span class="ba-tag tag-after">Utána</span>
+            </div>
+            <div class="ba-img before">
+              <img src="images/eredmeny-szempillalifting-elotte.webp" alt="Szempilla lifting előtt">
+              <span class="ba-tag tag-before">Előtte</span>
+            </div>
+            <div class="ba-slider-handle">
+              <div class="ba-handle-btn">↔</div>
+            </div>
+          </div>
+
+          <div class="case-info-content">
+            <span class="case-badge">Tartós 6–8 hét</span>
+            <h3 class="case-title">Szempilla Lifting & Tartós Festés</h3>
+            <p class="case-text">
+              A saját szempillák tövétől való kíméletes megemelése és mélyfekete festése optikailag azonnal megnyitja a tekintetet, dúsabb és íveltebb hatást biztosítva hetekig.
+            </p>
+            <div class="case-points">
+              <div class="case-point-item">Természetes íveltség és azonnal nyitottabb tekintet</div>
+              <div class="case-point-item">Szempillaspirál nélküli, rendezett és tartós hatás</div>
+            </div>
+            <div>
+              <button class="btn btn-primary btn-sm" data-open-modal data-service="Szempilla lifting">
+                Időpontot foglalok
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4. Slide: Szemöldök laminálás -->
+        <div class="case-slide" data-index="3">
+          <div class="ba-slider-container">
+            <div class="ba-img after">
+              <img src="images/eredmeny-szemoldoklaminalas-utana.webp" alt="Szemöldök laminálás és styling után">
+              <span class="ba-tag tag-after">Utána</span>
+            </div>
+            <div class="ba-img before">
+              <img src="images/eredmeny-szemoldoklaminalas-elotte.webp" alt="Szemöldök laminálás előtt">
+              <span class="ba-tag tag-before">Előtte</span>
+            </div>
+            <div class="ba-slider-handle">
+              <div class="ba-handle-btn">↔</div>
+            </div>
+          </div>
+
+          <div class="case-info-content">
+            <span class="case-badge">Tartós 5–7 hét</span>
+            <h3 class="case-title">Szemöldök Laminálás & Styling</h3>
+            <p class="case-text">
+              A kósza vagy ritkásnak tűnő szőrszálak precíz irányba fésülése, tartós fixálása és formázása, amely telt, dús és szimmetrikus szemöldökívet ad az arc karakterének.
+            </p>
+            <div class="case-points">
+              <div class="case-point-item">Dúsabb, szimmetrikus és rendezett szemöldökforma</div>
+              <div class="case-point-item">Precíz festés és hosszantartó tartás a mindennapokban</div>
+            </div>
+            <div>
+              <button class="btn btn-primary btn-sm" data-open-modal data-service="Szemöldök laminálás">
+                Időpontot foglalok
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 5. OTTHONI BŐRÁPOLÁS ================= -->
+  <section class="site-section section-subtle" id="otthoni-apolas">
+    <div class="container">
+      <div class="section-head-center" style="max-width: 820px; margin: 0 auto; text-align: center;">
+        <h2 class="section-title-large">A kezelés után sem engedem el a kezed.</h2>
+        <p class="section-desc" style="font-size: 1.15rem; line-height: 1.8; margin-top: 16px;">
+          A szalonkezelés önmagában nem minden.<br>
+          Segítek kialakítani egy olyan otthoni rutint, amely valóban illeszkedik a bőrödhöz, az életviteledhez és a
+          lehetőségeidhez.
+        </p>
+        <div class="home-care-statement">
+          Nem a legtöbb termék a cél. Hanem a megfelelő.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 6. ÁRAK SZEKCIÓ ================= -->
+  <section class="site-section section-alt" id="arak">
+    <div class="container">
+      <div class="section-head-center">
+        <h2 class="section-title-large">Árak</h2>
+        <p class="section-desc">
+          Professzionális, személyre szabott kezeléseink és szolgáltatásaink átlátható díjai.
+        </p>
+      </div>
+
+      <!-- Kiemelt Első Alkalom Kártya -->
+      <div class="pricing-first-card">
+        <div>
+          <span class="first-tag">⭐ Kiemelt Kezdő Ajánlat</span>
+          <h3 class="first-title">Bőrdiagnosztika + Személyre szabott kezelés</h3>
+          <p class="first-desc">
+            Ha még nem tudod, mire van szüksége a bőrödnek, ezzel érdemes indulnod. Alaposan átvizsgáljuk a bőrödet,
+            megbeszéljük a céljaidat, és a helyszínen állítjuk össze az ideális kezelést és otthoni ápolási tervet.
+          </p>
+        </div>
+        <div class="first-action-box">
+          <div class="first-price">10 500 Ft</div>
+          <div class="first-time">⏱ Kb. 45–60 perc</div>
+          <button class="btn btn-primary" style="width: 100%;" data-open-modal
+            data-service="Első alkalom: Bőrdiagnosztika & Személyre szabott kezelés">
+            Első alkalomra foglalok
+          </button>
+        </div>
+      </div>
+
+      <!-- Kategória Áttekintés Rács (5 Fő Kategória) -->
+      <div class="pricing-cat-grid">
+        <!-- 1. Arckezelések -->
+        <div class="price-box">
+          <div>
+            <div class="price-box-title">
+              <span>Arckezelések</span>
+              <span class="price-box-badge">18 500 Ft-tól</span>
+            </div>
+            <ul class="price-box-list">
+              <li><strong>Mélytisztító kezelés</strong> <span class="price-item-sub">(Tini / Teljes)</span></li>
+              <li><strong>Problémás bőr kezelése</strong></li>
+              <li><strong>Mélyhidratáló Glow</strong> & Érzékeny bőr</li>
+              <li><strong>Anti-aging peptides feszesítés</strong></li>
+            </ul>
+          </div>
+          <div class="price-box-footer">
+            <span class="price-box-duration">60–120 perc</span>
+            <a href="arak.html#arckezelesek" class="price-box-link">Részletes árak →</a>
+          </div>
+        </div>
+
+        <!-- 2. Speciális kezelések -->
+        <div class="price-box">
+          <div>
+            <div class="price-box-title">
+              <span>Speciális kezelések</span>
+              <span class="price-box-badge">15 000 Ft-tól</span>
+            </div>
+            <ul class="price-box-list">
+              <li><strong>Carboxy Therapy</strong> <span class="price-item-sub">(22 000 Ft)</span></li>
+              <li><strong>Tű nélküli mezoterápia</strong> <span class="price-item-sub">(22 000 Ft)</span></li>
+              <li><strong>Hamupipőke Express glow</strong> <span class="price-item-sub">(15 000 Ft)</span></li>
+            </ul>
+          </div>
+          <div class="price-box-footer">
+            <span class="price-box-duration">30–60 perc</span>
+            <a href="arak.html#specialis" class="price-box-link">Részletes árak →</a>
+          </div>
+        </div>
+
+        <!-- 3. Frissítő masszázs -->
+        <div class="price-box">
+          <div>
+            <div class="price-box-title">
+              <span>Frissítő masszázs</span>
+              <span class="price-box-badge">7 500 Ft</span>
+            </div>
+            <ul class="price-box-list">
+              <li><strong>Arc-, nyak- és dekoltázsmasszázs</strong></li>
+              <li>Kényeztető növényi olajos ápolás</li>
+              <li>Keringésfokozás & mély relaxáció</li>
+            </ul>
+          </div>
+          <div class="price-box-footer">
+            <span class="price-box-duration">40 perc</span>
+            <a href="arak.html#masszazs" class="price-box-link">Részletes árak →</a>
+          </div>
+        </div>
+
+        <!-- 4. Szempilla & Szemöldök -->
+        <div class="price-box">
+          <div>
+            <div class="price-box-title">
+              <span>Szempilla & Szemöldök</span>
+              <span class="price-box-badge">2 000 Ft-tól</span>
+            </div>
+            <ul class="price-box-list">
+              <li><strong>Szempilla lifting</strong> <span class="price-item-sub">(12 000 Ft-tól)</span></li>
+              <li><strong>Szemöldök laminálás</strong> & styling</li>
+              <li>Tartós festés és precíz formázás</li>
+            </ul>
+          </div>
+          <div class="price-box-footer">
+            <span class="price-box-duration">15–60 perc</span>
+            <a href="arak.html#szempilla-szemoldok" class="price-box-link">Részletes árak →</a>
+          </div>
+        </div>
+
+        <!-- 5. Szőrtelenítés / Wax -->
+        <div class="price-box price-box-wide">
+          <div>
+            <div class="price-box-title">
+              <span>Szőrtelenítés / Wax</span>
+              <span class="price-box-badge">1 800 Ft-tól</span>
+            </div>
+            <ul class="price-box-list price-box-list-grid">
+              <li><strong>Arc:</strong> Bajusz, pajesz, szakáll</li>
+              <li><strong>Felsőtest:</strong> Hónalj, karok, hát, mellkas</li>
+              <li><strong>Alsótest:</strong> Bikini vonal, lábak, comb</li>
+              <li><strong>Intim:</strong> Női intim, intim + fenék</li>
+            </ul>
+          </div>
+          <div class="price-box-footer">
+            <span class="price-box-duration">Kíméletes waxolás</span>
+            <a href="arak.html#szortelenites" class="price-box-link">Részletes árak →</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Központi Árlista Navigációs Sáv -->
+      <div class="price-banner-box">
+        <h3 class="price-banner-title">Minden kezelésünk és szolgáltatásunk pontos díja</h3>
+        <p class="price-banner-desc">
+          Nézd meg a teljes, részletes árlistát az összes kezelési opcióval, szőrtelenítési és szempilla díjakkal.
+        </p>
+        <div style="display: flex; justify-content: center; gap: 16px; flex-wrap: wrap;">
+          <a href="arak.html" class="btn btn-primary">
+            Teljes árlista megtekintése →
+          </a>
+          <button class="btn btn-outline" data-open-modal data-service="Általános Időpontfoglalás">
+            Időpontot foglalok
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 7. GYIK ================= -->
+  <section class="site-section" id="gyik">
+    <div class="container">
+      <div class="section-head-center">
+        <h2 class="section-title-large">Kérdések & Válaszok</h2>
+        <p class="section-desc">Minden fontos információ a stúdiólátogatásról és az időpontfoglalásról.</p>
+      </div>
+
+      <div class="faq-wrap">
+        <div class="faq-item open">
+          <div class="faq-header">
+            <span>Hogyan tudok időpontot foglalni?</span>
+            <span class="faq-icon">+</span>
+          </div>
+          <div class="faq-body">
+            <p>
+              A legegyszerűbb az oldalon található <strong>„Időpontot foglalok”</strong> gombra kattintva kitölteni a
+              rövid űrlapot. Emellett telefonon a <strong>+36 30 198 4220</strong> számon is örömmel egyeztetek veled!
+            </p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-header">
+            <span>Milyen hatóanyagokkal és termékekkel dolgozol?</span>
+            <span class="faq-icon">+</span>
+          </div>
+          <div class="faq-body">
+            <p>
+              A kezelések során professzionális, magas hatóanyag-tartalmú kozmetikumokkal dolgozom, a bőr aktuális állapotához és egyéni igényeihez igazítva.
+            </p>
+            <p>
+              Kiemelt márkám a <strong>Vagheggi</strong>, amelynek professzionális kezelési protokolljait és otthoni bőrápolási termékeit is alkalmazom.
+            </p>
+            <p>
+              A kezelések során többek között olyan értékes hatóanyagokkal dolgozom, mint:
+            </p>
+            <ul class="faq-body-list">
+              <li>hialuronsav</li>
+              <li>peptidek</li>
+              <li>antioxidánsok</li>
+              <li>vitaminok</li>
+              <li>növényi kivonatok</li>
+              <li>AHA-savak</li>
+              <li style="grid-column: span 2;">bőrazonos és hidratáló összetevők</li>
+            </ul>
+            <p>
+              Bizonyos célzott kezelésekhez a <strong>Clinicare</strong> professzionális hatóanyagait és kezelési protokolljait is alkalmazom.
+            </p>
+            <p>
+              A megfelelő hatóanyagokat minden esetben a bőr állapotának, érzékenységének és a kitűzött célnak megfelelően választom ki.
+            </p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-header">
+            <span>Hogyan készüljek az első kezelésre?</span>
+            <span class="faq-icon">+</span>
+          </div>
+          <div class="faq-body">
+            <p>
+              Különösebb előkészület nem szükséges. Nyugodtan érkezhetsz sminkben is, a stúdióban kíméletesen
+              megtisztítom az arcodat. Érdemes átgondolnod, milyen termékeket használsz most otthon, hogy azokat is át
+              tudjuk beszélni.
+            </p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-header">
+            <span>Hol található a szalon és van-e parkolási lehetőség?</span>
+            <span class="faq-icon">+</span>
+          </div>
+          <div class="faq-body">
+            <p>
+              A stúdió <strong>Szigetszentmiklóson, a Miklós Pláza 1. emeletén</strong> található (Ifjúság útja 16.). Az
+              épület előtt kényelmes és ingyenes parkolóhelyek állnak rendelkezésedre.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 8. ZÁRÓ CTA SZEKCIÓ ================= -->
+  <section class="final-cta-section" id="idopont">
+    <div class="container">
+      <div class="final-cta-card">
+        <div class="final-cta-ornament">◈</div>
+        <h2 class="final-cta-title">
+          Ideje egy kicsit magaddal is foglalkoznod.
+        </h2>
+        <p class="final-cta-desc">
+          Ha szeretnéd jobban megérteni a bőröd és megtalálni azt a kezelést, amire valóban szüksége van, várlak
+          szeretettel a BB Beauty Stúdióban.
+        </p>
+
+        <div class="final-location-badge">
+          📍 Szigetszentmiklós, Miklós Pláza, Ifjúság útja 16. (1. emelet)
+        </div>
+
+        <div>
+          <button class="btn btn-primary" data-open-modal data-service="Záró Időpontfoglalás">
+            Időpontot foglalok
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 9. KAPCSOLAT & TÉRKÉP ================= -->
+  <section class="site-section" id="kapcsolat">
+    <div class="container">
+      <div class="section-head-center">
+        <h2 class="section-title-large">Kapcsolat & Megközelítés</h2>
+        <p class="section-desc">Szeretettel várlak Szigetszentmiklóson, prémium és nyugodt környezetben.</p>
+      </div>
+
+      <div class="contact-grid">
+        <div class="contact-card-box">
+          <div>
+            <img src="images/bbLogo.webp" alt="BB Beauty Logo"
+              style="height: 74px; width: auto; object-fit: contain; margin-bottom: 20px; display: block;">
+
+            <div class="contact-items">
+              <div class="contact-row-item">
+                <div class="contact-icon-bubble">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                </div>
+                <div class="contact-details">
+                  <strong>Cím & Megközelítés</strong>
+                  <span>2310 Szigetszentmiklós, Ifjúság útja 16.</span>
+                  <div style="font-size: 0.88rem; color: var(--text-light); margin-bottom: 4px;">Miklós Pláza, 1. emelet</div>
+                  <a href="https://www.google.com/maps/search/?api=1&query=Mikl%C3%B3s+Pl%C3%A1za+Szigetszentmikl%C3%B3s+Ifj%C3%BAs%C3%A1g+%C3%BAtja+16" target="_blank" rel="noopener noreferrer" style="font-size: 0.84rem; color: var(--primary); font-weight: 600; display: inline-flex; align-items: center; gap: 4px;">
+                    Megnyitás Google Térképen ↗
+                  </a>
+                </div>
+              </div>
+
+              <div class="contact-row-item">
+                <div class="contact-icon-bubble">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                </div>
+                <div class="contact-details">
+                  <strong>Telefonszám</strong>
+                  <a href="tel:+36301984220">+36 30 198 4220</a>
+                </div>
+              </div>
+
+              <div class="contact-row-item">
+                <div class="contact-icon-bubble">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                </div>
+                <div class="contact-details">
+                  <strong>Nyitvatartás</strong>
+                  <div class="opening-hours-grid">
+                    <div class="hours-row">
+                      <span class="hours-day">Hétfő – Péntek:</span>
+                      <span class="hours-time">08:00 – 19:00</span>
+                    </div>
+                    <div class="hours-row">
+                      <span class="hours-day">Szombat:</span>
+                      <span class="hours-time">08:00 – 13:00</span>
+                    </div>
+                    <div class="hours-row is-closed">
+                      <span class="hours-day">Vasárnap:</span>
+                      <span class="hours-time">Zárva</span>
+                    </div>
+                  </div>
+                  <div class="hours-note">✦ Kizárólag előzetes bejelentkezés alapján</div>
+                </div>
+              </div>
+
+              <div class="contact-row-item">
+                <div class="contact-icon-bubble">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="4"></rect><path d="M9 17V7h4a3 3 0 0 1 0 6H9"></path></svg>
+                </div>
+                <div class="contact-details">
+                  <strong>Parkolás</strong>
+                  <span>Ingyenes parkolás a Miklós Pláza előtt</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <button class="btn btn-primary" style="width: 100%;" data-open-modal
+            data-service="Kapcsolat Oldali Időpontfoglalás">
+            Időpontfoglalás a stúdióba
+          </button>
+        </div>
+
+        <div class="map-container">
+          <iframe
+            src="https://maps.google.com/maps?q=Mikl%C3%B3s+Pl%C3%A1za,+Szigetszentmikl%C3%B3s,+Ifj%C3%BAs%C3%A1g+%C3%BAtja+16,+2310&t=&z=16&ie=UTF8&iwloc=&output=embed"
+            title="BB Beauty Kozmetika - Miklós Pláza, Szigetszentmiklós, Ifjúság útja 16." loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-logo-wrap">
+        <img src="images/bbLogo-light.webp" alt="BB Beauty Logo" class="footer-logo-img">
+      </div>
+      <div class="footer-tagline">Tudatos bőrápolás · Személyre szabott figyelem</div>
+
+      <div class="footer-links">
+        <a href="#kezelesek">Kezelések</a>
+        <a href="rolam.html">Ismerj meg & Stúdió</a>
+        <a href="arak.html">Árak</a>
+        <a href="#eredmenyek">Eredmények</a>
+        <a href="#kapcsolat">Kapcsolat</a>
+      </div>
+
+      <div class="footer-copyright">
+        © 2026 BB Beauty (Barna Bettina Kozmetika) • Szigetszentmiklós, Miklós Pláza, Ifjúság útja 16., 1. emelet • Tel: +36 30 198 4220
+      </div>
+    </div>
+  </footer>
+
+  <!-- ================= KEZELÉS RÉSZLETEK MODAL ================= -->
+  <div class="modal-backdrop" id="treatmentDetailModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-container-card">
+      <button class="modal-close-btn" aria-label="Ablak bezárása">&times;</button>
+
+      <span id="modalBadge" class="section-badge" style="margin-bottom: 8px;">Kezelés</span>
+      <h2 id="modalTitle"
+        style="font-family: var(--font-serif); font-size: 1.6rem; color: var(--text-main); margin-bottom: 6px;">Kezelés
+        Neve</h2>
+      <div id="modalSubtitle" style="font-size: 0.95rem; font-weight: 600; color: var(--primary); margin-bottom: 20px;">
+        90 perc · 18 500 Ft-tól</div>
+
+      <div style="margin-bottom: 18px;">
+        <strong
+          style="display: block; font-size: 0.85rem; color: var(--text-light); text-transform: uppercase; margin-bottom: 4px;">Kinek
+          ajánlott?</strong>
+        <p id="modalAudience" style="font-size: 0.95rem; color: var(--text-muted); line-height: 1.55;">Mitesszeres,
+          eltömődött bőr esetén.</p>
+      </div>
+
+      <div style="margin-bottom: 18px;">
+        <strong
+          style="display: block; font-size: 0.85rem; color: var(--text-light); text-transform: uppercase; margin-bottom: 4px;">Mire
+          számíthatsz?</strong>
+        <p id="modalExpectation" style="font-size: 0.95rem; color: var(--text-muted); line-height: 1.55;">Rövid
+          állapotfelmérés, kíméletes tisztítás és hidratáló ápolás.</p>
+      </div>
+
+      <div style="margin-bottom: 24px;">
+        <strong
+          style="display: block; font-size: 0.85rem; color: var(--text-light); text-transform: uppercase; margin-bottom: 8px;">A
+          kezelés lépései</strong>
+        <div id="modalStepsList"></div>
+      </div>
+
+      <div
+        style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--border-card); padding-top: 20px; flex-wrap: wrap; gap: 14px;">
+        <div>
+          <span style="font-size: 0.78rem; color: var(--text-light); display: block;">Ár:</span>
+          <strong id="modalPriceVal" style="font-size: 1.3rem; color: var(--primary);">18 500 Ft-tól</strong>
+        </div>
+        <button class="btn btn-primary" id="modalBookBtn" data-open-modal data-service="Kezelés">
+          Időpontot kérek
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= IDŐPONTFOGLALÓ MODAL ================= -->
+  <div class="modal-backdrop" id="bookingModal" role="dialog" aria-modal="true" aria-labelledby="bookingTitle">
+    <div class="modal-container-card">
+      <button class="modal-close-btn" aria-label="Ablak bezárása">&times;</button>
+
+      <h3 id="bookingTitle"
+        style="font-family: var(--font-serif); font-size: 1.5rem; color: var(--text-main); margin-bottom: 6px;">
+        Időpontfoglalás
+      </h3>
+      <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 24px;">
+        Töltsd ki az alábbi űrlapot, és hamarosan felveszem veled a kapcsolatot!
+      </p>
+
+      <form id="bookingForm">
+        <div class="form-field">
+          <label for="bookName">Teljes Neved *</label>
+          <input type="text" id="bookName" required placeholder="pl. Kovács Anna">
+        </div>
+
+        <div class="form-field">
+          <label for="bookPhone">Telefonszámod *</label>
+          <input type="tel" id="bookPhone" required placeholder="pl. +36 30 123 4567">
+        </div>
+
+        <div class="form-field">
+          <label for="bookService">Kiválasztott kezelés / érdeklődés</label>
+          <input type="text" id="bookService" value="Személyre Szabott Konzultáció & Kezelés">
+        </div>
+
+        <div class="form-field">
+          <label for="bookNotes">Megjegyzés / Időpont preferencia</label>
+          <textarea id="bookNotes" rows="3" placeholder="pl. Hétfő vagy szerda délután lenne a legjobb..."></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary" style="width: 100%; padding: 14px; margin-top: 10px;">
+          Időpontkérés Elküldése
+        </button>
+      </form>
+    </div>
+  </div>
+
+  
+
+  <!-- Scripts -->
+  <script src="treatments-data.js"></script>
+  <script src="script.js"></script>
+</body>
+
+</html>
