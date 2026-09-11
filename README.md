@@ -1,4 +1,4 @@
-# ✨ BB Beauty Kozmetika – Hivatalos Weboldal
+# ✨ BBbeauty Kozmetika – Hivatalos Weboldal
 
 [![Weboldal Állapot](https://img.shields.io/badge/Weboldal-Aktív-brightgreen.svg)]()
 [![HTML5](https://img.shields.io/badge/HTML5-Modern-E34F26.svg?logo=html5&logoColor=white)]()
@@ -7,7 +7,7 @@
 [![Assets](https://img.shields.io/badge/Képek-WebP%20Optimalizált-4285F4.svg)]()
 [![Hosztolás](https://img.shields.io/badge/GitHub%20Pages-Ready-181717.svg?logo=github)]()
 
-A **BB Beauty Kozmetika** (Barna Bettina kozmetikus) prémium, modern és reszponzív hivatalos weboldala. Személyre szabott arckezelések, tudatos bőrápolás és szakmai konzultáció Szigetszentmiklóson, a Miklós Plázában.
+A **BBbeauty Kozmetika** (Barna Bettina kozmetikus) prémium, modern és reszponzív hivatalos weboldala. Személyre szabott arckezelések, tudatos bőrápolás és szakmai konzultáció Szigetszentmiklóson, a Miklós Plázában.
 
 ---
 
@@ -58,8 +58,8 @@ bbbeautykozmetika.hu/
 ├── .gitignore               # Git kizárások
 ├── README.md                # Projekt dokumentáció
 └── images/                  # Optimalizált WebP médiafájlok
-    ├── bbLogo.webp          # BB Beauty logó (sötét háttérre)
-    ├── bbLogo-light.webp    # BB Beauty logó (világos háttérre)
+    ├── bbLogo.webp          # BBbeauty logó (sötét háttérre)
+    ├── bbLogo-light.webp    # BBbeauty logó (világos háttérre)
     ├── hero-slide-*.webp    # Hero slider képek
     ├── szepitke-*.webp      # Kezelési és akciófotók
     ├── eredmeny-*.webp      # Előtte-utána képpárok
@@ -99,16 +99,17 @@ Ezután nyisd meg a böngészőben: `http://localhost:8000`
 ## 📅 Salonic Időpontfoglaló Integráció
 
 A weboldalon az időpontfoglaló gombok készen állnak a Salonic (salonic.hu) összekötésre:
-- **Közvetlen link:** A gombok `href` értéke egyszerűen átirányítható a szalon Salonic profiljára: `https://salonic.hu/b/bb-beauty`.
+- **Közvetlen link:** A gombok `href` értéke közvetlenül a szalon Salonic profiljára és konkrét szolgáltatásaira mutat: `https://bbbeautykozmetika.salonic.hu/showServices/?employeeId=33059&placeId=14908&serviceId=0`.
 - **Beágyazott widget:** A foglalási modalban elhelyezhető a Salonic beágyazó iframe / widget kódja.
 
 ---
 
 ## 📍 Kapcsolati Adatok
 
-- **Szalon neve:** BB Beauty Kozmetika (Barna Bettina)
+- **Szalon neve:** BBbeauty Kozmetika (Barna Bettina)
 - **Cím:** 2310 Szigetszentmiklós, Miklós Pláza, Ifjúság útja 16., 1. emelet
-- **Telefon:** +36 30 198 4220
+- **Telefon:** +36 70 674 2352
+- **E-mail:** bettinabarna348@gmail.com
 - **Nyitvatartás:**
   - Hétfő – Péntek: 08:00 – 19:00 *(Bejelentkezés alapján)*
   - Szombat: 08:00 – 13:00 *(Bejelentkezés alapján)*

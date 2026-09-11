@@ -1,0 +1,26 @@
+{
+  "name": "BBbeauty Kozmetika · Szigetszentmiklós",
+  "short_name": "BBbeauty",
+  "description": "Személyre szabott arckezelések, tudatos bőrápolás és prémium Vagheggi kezelések Szigetszentmiklóson a Miklós Plázában. Barna Bettina kozmetikus.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FFF9F6",
+  "theme_color": "#B86E5E",
+  "icons": [
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ]
+}

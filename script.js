@@ -1,5 +1,5 @@
 /**
- * ROSIE AESTHETIC STUDIO - MAIN JAVASCRIPT (V7)
+ * BBbeauty Kozmetika - Main JavaScript (V8.1)
  */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -67,26 +67,168 @@ document.addEventListener('DOMContentLoaded', () => {
     const item = TREATMENTS_DATA.find(t => t.id === id);
     if (!item || !treatmentModal) return;
 
-    document.getElementById('modalBadge').textContent = item.badge || item.subtitle;
-    document.getElementById('modalTitle').textContent = item.name;
-    document.getElementById('modalSubtitle').textContent = `${item.duration} · ${item.priceFormatted}`;
-    document.getElementById('modalAudience').textContent = item.targetAudience;
-    document.getElementById('modalExpectation').textContent = item.expectation;
-    document.getElementById('modalPriceVal').textContent = item.priceFormatted;
+    // Header info
+    const badgeEl = document.getElementById('modalBadge');
+    if (badgeEl) badgeEl.textContent = item.badge || item.categoryName || 'Kezelés';
 
-    const stepsList = document.getElementById('modalStepsList');
-    if (stepsList) {
-      stepsList.innerHTML = item.steps.map((step, idx) => `
-        <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px; font-size: 0.92rem;">
-          <span style="width: 22px; height: 22px; border-radius: 50%; background: var(--primary-light); color: var(--primary-dark); display: inline-flex; align-items: center; justify-content: center; font-size: 0.75rem; font-weight: 700;">${idx + 1}</span>
-          <span>${step}</span>
-        </div>
-      `).join('');
+    const titleEl = document.getElementById('modalTitle');
+    if (titleEl) titleEl.textContent = item.name;
+
+    const subEl = document.getElementById('modalSubtitle');
+    if (subEl) {
+      if (item.subtitle) {
+        subEl.textContent = `${item.subtitle} · ⏱ ${item.duration}`;
+      } else {
+        subEl.textContent = `⏱ ${item.duration} · ${item.priceFormatted}`;
+      }
     }
 
-    const bookBtn = document.getElementById('modalBookBtn');
-    if (bookBtn) {
-      bookBtn.setAttribute('data-service', item.name);
+    // Tagline (pl. Hydraglow kiemelés)
+    const taglineEl = document.getElementById('modalTagline');
+    if (taglineEl) {
+      if (item.tagline) {
+        taglineEl.textContent = item.tagline;
+        taglineEl.style.display = 'block';
+      } else {
+        taglineEl.style.display = 'none';
+      }
+    }
+
+    // Változatok és Árak áttekintő blokk
+    const priceWrap = document.getElementById('modalPricingWrap');
+    const priceGrid = document.getElementById('modalPricingGrid');
+    if (priceWrap && priceGrid) {
+      if (item.variants && item.variants.length > 0) {
+        priceGrid.innerHTML = item.variants.map(v => `
+          <div class="modal-pricing-card">
+            <div class="modal-pricing-card-info">
+              <strong class="modal-pricing-variant-name">${v.name}</strong>
+              <span class="modal-pricing-variant-meta">⏱ ${v.duration} · <span style="font-weight: 700; color: var(--primary);">${v.price}</span></span>
+            </div>
+            <a href="${v.salonicUrl || item.salonicUrl || 'https://bbbeautykozmetika.salonic.hu/showServices/?employeeId=33059&placeId=14908&serviceId=0'}" target="_blank" rel="noopener noreferrer" class="btn-table-book" style="padding: 6px 14px; font-size: 0.80rem;">
+              Foglalás →
+            </a>
+          </div>
+        `).join('');
+        priceWrap.style.display = 'block';
+      } else {
+        priceWrap.style.display = 'none';
+      }
+    }
+
+    // Leírás
+    const descEl = document.getElementById('modalDesc');
+    if (descEl) {
+      descEl.textContent = item.fullDesc || item.shortDesc;
+    }
+
+    // Kinek ajánlott
+    const audList = document.getElementById('modalAudienceList');
+    if (audList) {
+      if (Array.isArray(item.targetAudience)) {
+        audList.innerHTML = item.targetAudience.map(aud => `<li>${aud}</li>`).join('');
+      } else if (typeof item.targetAudience === 'string') {
+        audList.innerHTML = `<li>${item.targetAudience}</li>`;
+      }
+    }
+
+    // Kiemelt hatóanyagok
+    const ingWrap = document.getElementById('modalIngredientsWrap');
+    const ingList = document.getElementById('modalIngredientsList');
+    if (ingWrap && ingList) {
+      if (item.ingredients && item.ingredients.length > 0) {
+        ingList.innerHTML = item.ingredients.map(ing => `
+          <div class="modal-ingredient-item">
+            <strong>${ing.name}</strong>
+            <span>${ing.benefit}</span>
+          </div>
+        `).join('');
+        ingWrap.style.display = 'block';
+      } else {
+        ingWrap.style.display = 'none';
+      }
+    }
+
+    // Mit fogsz érezni?
+    const feelWrap = document.getElementById('modalFeelingsWrap');
+    const feelList = document.getElementById('modalFeelingsList');
+    if (feelWrap && feelList) {
+      if (item.feelings && item.feelings.length > 0) {
+        feelList.innerHTML = item.feelings.map(f => `<li>${f}</li>`).join('');
+        feelWrap.style.display = 'block';
+      } else {
+        feelWrap.style.display = 'none';
+      }
+    }
+
+    // Lépések / Változatok
+    const stepsWrap = document.getElementById('modalStepsContainer');
+    if (stepsWrap) {
+      if (item.variants && item.variants.length > 0) {
+        stepsWrap.innerHTML = item.variants.map((v, vIdx) => `
+          <div class="modal-variant-box" style="${vIdx > 0 ? 'margin-top: 16px;' : ''}">
+            <div class="modal-variant-header">
+              <div>
+                <strong class="modal-variant-title">✦ ${v.name}</strong>
+                <span class="modal-variant-meta">Időtartam: ${v.duration} · Ár: ${v.price}</span>
+              </div>
+              <a href="${v.salonicUrl || item.salonicUrl || 'https://bbbeautykozmetika.salonic.hu/showServices/?employeeId=33059&placeId=14908&serviceId=0'}" target="_blank" rel="noopener noreferrer" class="btn-table-book" style="padding: 5px 12px; font-size: 0.78rem;">
+                Foglalás →
+              </a>
+            </div>
+            <div class="modal-step-list">
+              ${v.steps.map((st, sIdx) => `
+                <div class="modal-step-row">
+                  <span class="modal-step-num">${sIdx + 1}</span>
+                  <span class="modal-step-text">${st}</span>
+                </div>
+              `).join('')}
+            </div>
+          </div>
+        `).join('');
+      } else if (item.steps) {
+        stepsWrap.innerHTML = `
+          <div class="modal-step-list">
+            ${item.steps.map((st, sIdx) => `
+              <div class="modal-step-row">
+                <span class="modal-step-num">${sIdx + 1}</span>
+                <span class="modal-step-text">${st}</span>
+              </div>
+            `).join('')}
+          </div>
+        `;
+      }
+    }
+
+    // Otthoni ápolás
+    const homeWrap = document.getElementById('modalHomeCareWrap');
+    const homeEl = document.getElementById('modalHomeCare');
+    if (homeWrap && homeEl) {
+      if (item.homeCare) {
+        homeEl.textContent = item.homeCare;
+        homeWrap.style.display = 'block';
+      } else {
+        homeWrap.style.display = 'none';
+      }
+    }
+
+    // Ár és Foglalás gomb
+    const priceVal = document.getElementById('modalPriceVal');
+    const modalBookBtn = document.getElementById('modalBookBtn');
+    if (priceVal) {
+      if (item.variants && item.variants.length > 1) {
+        priceVal.textContent = item.variants.map(v => v.price).join(' / ');
+        if (modalBookBtn) {
+          modalBookBtn.href = 'https://bbbeautykozmetika.salonic.hu/showServices/?employeeId=33059&placeId=14908&serviceId=0';
+          modalBookBtn.textContent = 'Összes szolgáltatás megnyitása →';
+        }
+      } else {
+        priceVal.textContent = item.priceFormatted || `${item.price} Ft`;
+        if (modalBookBtn) {
+          modalBookBtn.href = item.salonicUrl || 'https://bbbeautykozmetika.salonic.hu/showServices/?employeeId=33059&placeId=14908&serviceId=0';
+          modalBookBtn.textContent = 'Időpontot kérek';
+        }
+      }
     }
 
     treatmentModal.classList.add('open');
@@ -106,257 +248,175 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  treatmentModalClose?.addEventListener('click', closeTreatmentModal);
+  treatmentModal?.querySelectorAll('.modal-close-btn, .modal-close-btn-secondary').forEach(btn => {
+    btn.addEventListener('click', closeTreatmentModal);
+  });
   treatmentModal?.addEventListener('click', (e) => {
     if (e.target === treatmentModal) closeTreatmentModal();
   });
 
-  // 5. Booking Modal
-  const bookingModal = document.getElementById('bookingModal');
-  const bookingModalClose = bookingModal?.querySelector('.modal-close-btn');
-  const bookingServiceInput = document.getElementById('bookService');
-
-  function openBookingModal(serviceName) {
-    if (bookingServiceInput && serviceName) {
-      bookingServiceInput.value = serviceName;
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && treatmentModal?.classList.contains('open')) {
+      closeTreatmentModal();
     }
-    closeTreatmentModal();
-    bookingModal?.classList.add('open');
-    document.body.style.overflow = 'hidden';
-  }
-
-  function closeBookingModal() {
-    bookingModal?.classList.remove('open');
-    document.body.style.overflow = '';
-  }
-
-  document.querySelectorAll('[data-open-modal]').forEach(btn => {
-    btn.addEventListener('click', (e) => {
-      e.preventDefault();
-      const service = btn.getAttribute('data-service') || 'Személyre Szabott Konzultáció & Kezelés';
-      openBookingModal(service);
-    });
   });
 
-  bookingModalClose?.addEventListener('click', closeBookingModal);
-  bookingModal?.addEventListener('click', (e) => {
-    if (e.target === bookingModal) closeBookingModal();
-  });
-
-  const bookingForm = document.getElementById('bookingForm');
-  bookingForm?.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const name = document.getElementById('bookName')?.value;
-    alert(`Köszönjük, ${name}! Időpontkérésedet rögzítettük. Hamarosan visszahívunk!`);
-    closeBookingModal();
-    bookingForm.reset();
-  });
-
-  // 6. Before / After Comparison Slider
-  const sliders = document.querySelectorAll('.ba-slider-container');
-  sliders.forEach(slider => {
-    const beforeImg = slider.querySelector('.ba-img.before');
-    const handle = slider.querySelector('.ba-slider-handle');
-    let isDragging = false;
-
-    function setPosition(x) {
-      const rect = slider.getBoundingClientRect();
-      let pos = (x - rect.left) / rect.width;
-      if (pos < 0.05) pos = 0.05;
-      if (pos > 0.95) pos = 0.95;
-      const pct = pos * 100;
-      if (beforeImg) beforeImg.style.width = `${pct}%`;
-      if (handle) handle.style.left = `${pct}%`;
-    }
-
-    function onPointerDown(e) {
-      isDragging = true;
-      setPosition(e.clientX || (e.touches && e.touches[0].clientX));
-    }
-
-    function onPointerMove(e) {
-      if (!isDragging) return;
-      setPosition(e.clientX || (e.touches && e.touches[0].clientX));
-    }
-
-    function onPointerUp() {
-      isDragging = false;
-    }
-
-    slider.addEventListener('mousedown', onPointerDown);
-    slider.addEventListener('touchstart', onPointerDown, { passive: true });
-    window.addEventListener('mousemove', onPointerMove);
-    window.addEventListener('touchmove', onPointerMove, { passive: true });
-    window.addEventListener('mouseup', onPointerUp);
-    window.addEventListener('touchend', onPointerUp);
-  });
-
-  // 7. Case Study Tabs
+  // 5. Before-After Image Slider & Tabs (10 mp-es automatikus léptetéssel)
   const caseTabs = document.querySelectorAll('.case-tab-btn');
   const caseSlides = document.querySelectorAll('.case-slide');
+  let currentCaseIdx = 0;
+  let caseAutoSlideTimer = null;
+
+  function switchCaseSlide(idx) {
+    currentCaseIdx = parseInt(idx, 10);
+    caseTabs.forEach(t => t.classList.remove('active'));
+    caseSlides.forEach(s => s.classList.remove('active'));
+
+    const targetTab = document.querySelector(`.case-tab-btn[data-index="${currentCaseIdx}"]`);
+    const targetSlide = document.querySelector(`.case-slide[data-index="${currentCaseIdx}"]`);
+    targetTab?.classList.add('active');
+    targetSlide?.classList.add('active');
+  }
+
+  function startCaseAutoSlide() {
+    if (caseAutoSlideTimer) clearInterval(caseAutoSlideTimer);
+    if (caseSlides.length > 1) {
+      caseAutoSlideTimer = setInterval(() => {
+        const nextIdx = (currentCaseIdx + 1) % caseSlides.length;
+        switchCaseSlide(nextIdx);
+      }, 10000); // 10 másodpercenként ugrik a következőre
+    }
+  }
 
   caseTabs.forEach(tab => {
     tab.addEventListener('click', () => {
       const idx = tab.getAttribute('data-index');
-      caseTabs.forEach(t => t.classList.remove('active'));
-      caseSlides.forEach(s => s.classList.remove('active'));
-
-      tab.classList.add('active');
-      const targetSlide = document.querySelector(`.case-slide[data-index="${idx}"]`);
-      if (targetSlide) targetSlide.classList.add('active');
+      if (idx !== null) {
+        switchCaseSlide(idx);
+        startCaseAutoSlide();
+      }
     });
   });
 
-  // 8. Interactive Skin Quiz
-  const quizSteps = document.querySelectorAll('.quiz-step-slide');
-  const quizIndicators = document.querySelectorAll('.quiz-step-indicator');
-  let currentStep = 1;
-  const quizAnswers = {};
-
-  document.querySelectorAll('.quiz-opt-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const field = btn.getAttribute('data-field');
-      const val = btn.getAttribute('data-val');
-      const parentSlide = btn.closest('.quiz-step-slide');
-      
-      parentSlide.querySelectorAll('.quiz-opt-btn').forEach(b => b.classList.remove('selected'));
-      btn.classList.add('selected');
-      quizAnswers[field] = val;
-
-      const nextBtn = parentSlide.querySelector('.quiz-next-btn');
-      if (nextBtn) nextBtn.disabled = false;
-    });
-  });
-
-  function showQuizStep(step) {
-    currentStep = step;
-    quizSteps.forEach(s => s.classList.remove('active'));
-    quizIndicators.forEach(ind => {
-      const indStep = parseInt(ind.getAttribute('data-step'));
-      if (indStep <= currentStep) ind.classList.add('active');
-      else ind.classList.remove('active');
-    });
-
-    const target = document.querySelector(`.quiz-step-slide[data-step="${step}"]`);
-    if (target) target.classList.add('active');
-
-    if (step === 4) {
-      calculateQuizResult();
-    }
+  if (caseSlides.length > 0) {
+    startCaseAutoSlide();
   }
 
-  function calculateQuizResult() {
-    const concern = quizAnswers.concern || 'glow';
-    let title = "Mélyhidratáló Glow kezelés";
-    let desc = "Ha a bőröd gyakran feszül, fakónak érzed és természetes ragyogásra vágysz, a hialuronsavas mélyfeltöltés a legtökéletesebb választás.";
-    let price = "18 500 Ft-tól";
+  function initBeforeAfterSliders() {
+    const containers = document.querySelectorAll('.ba-slider-container');
+    containers.forEach(container => {
+      const handle = container.querySelector('.ba-slider-handle');
+      const beforeImg = container.querySelector('.ba-img.before');
+      let isDragging = false;
 
-    if (concern === 'acne') {
-      title = "Mélytisztító arckezelés & Bőrmegújítás";
-      desc = "Kíméletes felpuhítás és alapos pórustisztítás a mitesszeres, tisztátalan bőrkép megújítására.";
-      price = "18 500 Ft-tól";
-    } else if (concern === 'aging') {
-      title = "Anti-aging feszesítő kezelés";
-      desc = "Biomimetikus peptidekkel és lifting masszázzsal a tónusosabb, feszesebb és simább bőrfelszínért.";
-      price = "22 500 Ft-tól";
-    }
+      function updateSliderPosition(x) {
+        const rect = container.getBoundingClientRect();
+        let posX = x - rect.left;
+        if (posX < 0) posX = 0;
+        if (posX > rect.width) posX = rect.width;
 
-    const titleEl = document.getElementById('quizResTitle');
-    const descEl = document.getElementById('quizResDesc');
-    const metaEl = document.getElementById('quizResMeta');
-    const recBookBtn = document.getElementById('quizRecBookBtn');
+        const percent = (posX / rect.width) * 100;
+        if (handle) handle.style.left = `${percent}%`;
+        if (beforeImg) beforeImg.style.clipPath = `polygon(0 0, ${percent}% 0, ${percent}% 100%, 0 100%)`;
+      }
 
-    if (titleEl) titleEl.textContent = title;
-    if (descEl) descEl.textContent = desc;
-    if (metaEl) metaEl.textContent = `Ár: ${price} • Személyre szabott hatóanyagokkal`;
-    if (recBookBtn) recBookBtn.setAttribute('data-service', title);
+      container.addEventListener('mousedown', (e) => {
+        isDragging = true;
+        updateSliderPosition(e.clientX);
+      });
+
+      window.addEventListener('mouseup', () => {
+        isDragging = false;
+      });
+
+      window.addEventListener('mousemove', (e) => {
+        if (!isDragging) return;
+        updateSliderPosition(e.clientX);
+      });
+
+      container.addEventListener('touchstart', (e) => {
+        isDragging = true;
+        updateSliderPosition(e.touches[0].clientX);
+      }, { passive: true });
+
+      window.addEventListener('touchend', () => {
+        isDragging = false;
+      });
+
+      window.addEventListener('touchmove', (e) => {
+        if (!isDragging) return;
+        updateSliderPosition(e.touches[0].clientX);
+      }, { passive: true });
+    });
   }
+  initBeforeAfterSliders();
 
-  document.querySelectorAll('.quiz-next-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      showQuizStep(currentStep + 1);
+  // 6. FAQ Accordion
+  const faqItems = document.querySelectorAll('.faq-item');
+  faqItems.forEach(item => {
+    const header = item.querySelector('.faq-header');
+    header?.addEventListener('click', () => {
+      const isOpen = item.classList.contains('open');
+      faqItems.forEach(i => i.classList.remove('open'));
+      if (!isOpen) {
+        item.classList.add('open');
+      }
     });
   });
 
-  document.querySelectorAll('.quiz-prev-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      showQuizStep(currentStep - 1);
-    });
-  });
-
-  document.querySelector('.quiz-restart-btn')?.addEventListener('click', () => {
-    document.querySelectorAll('.quiz-opt-btn').forEach(b => b.classList.remove('selected'));
-    document.querySelectorAll('.quiz-next-btn').forEach(b => b.disabled = true);
-    showQuizStep(1);
-  });
-
-  // 9. FAQ Accordion
-  document.querySelectorAll('.faq-header').forEach(header => {
-    header.addEventListener('click', () => {
-      const item = header.closest('.faq-item');
-      item?.classList.toggle('open');
-    });
-  });
-
-  // 10. Toggle Full Treatments Catalog
+  // 7. Toggle Full Catalog Grid
   const toggleCatalogBtn = document.getElementById('toggleCatalogBtn');
   const catalogWrap = document.getElementById('catalogWrap');
+
   toggleCatalogBtn?.addEventListener('click', () => {
-    if (catalogWrap) {
-      if (catalogWrap.style.display === 'none' || !catalogWrap.style.display) {
-        catalogWrap.style.display = 'block';
-        toggleCatalogBtn.textContent = 'Összes kezelés elrejtése ↑';
-        catalogWrap.scrollIntoView({ behavior: 'smooth' });
-      } else {
-        catalogWrap.style.display = 'none';
-        toggleCatalogBtn.textContent = 'Összes kezelés megtekintése ↓';
-      }
+    if (!catalogWrap) return;
+    const isHidden = catalogWrap.style.display === 'none' || catalogWrap.style.display === '';
+    if (isHidden) {
+      catalogWrap.style.display = 'block';
+      toggleCatalogBtn.textContent = 'Katalógus bezárása ↑';
+    } else {
+      catalogWrap.style.display = 'none';
+      toggleCatalogBtn.textContent = 'Összes kezelés megtekintése ↓';
     }
   });
 
-  // 11. Hero Image Slider (BB Beauty)
-  const heroSlider = document.getElementById('heroSlider');
+  // 8. Hero Image Slider (BBbeauty)
+  const heroSlider = document.querySelector('.hero-slider-frame');
   if (heroSlider) {
     const slides = heroSlider.querySelectorAll('.hero-slide');
-    const dots = heroSlider.querySelectorAll('.hero-dot');
+    const dots = heroSlider.querySelectorAll('.slider-dot');
     let currentSlide = 0;
-    let sliderTimer = null;
+    let slideInterval;
 
-    function goToSlide(index) {
-      if (slides.length === 0) return;
+    function showSlide(index) {
+      slides.forEach(slide => slide.classList.remove('active'));
+      dots.forEach(dot => dot.classList.remove('active'));
+
       currentSlide = (index + slides.length) % slides.length;
-      slides.forEach((slide, i) => {
-        slide.classList.toggle('active', i === currentSlide);
-      });
-      dots.forEach((dot, i) => {
-        dot.classList.toggle('active', i === currentSlide);
-      });
+      slides[currentSlide]?.classList.add('active');
+      dots[currentSlide]?.classList.add('active');
     }
 
-    function startAutoSlide() {
-      stopAutoSlide();
-      sliderTimer = setInterval(() => {
-        goToSlide(currentSlide + 1);
-      }, 10000);
+    function nextSlide() {
+      showSlide(currentSlide + 1);
     }
 
-    function stopAutoSlide() {
-      if (sliderTimer) {
-        clearInterval(sliderTimer);
-        sliderTimer = null;
-      }
+    function startSlider() {
+      slideInterval = setInterval(nextSlide, 4500);
     }
 
-    dots.forEach((dot, i) => {
+    function resetInterval() {
+      clearInterval(slideInterval);
+      startSlider();
+    }
+
+    dots.forEach((dot, idx) => {
       dot.addEventListener('click', () => {
-        goToSlide(i);
-        startAutoSlide();
+        showSlide(idx);
+        resetInterval();
       });
     });
 
-    heroSlider.addEventListener('mouseenter', stopAutoSlide);
-    heroSlider.addEventListener('mouseleave', startAutoSlide);
-
-    startAutoSlide();
+    startSlider();
   }
 });

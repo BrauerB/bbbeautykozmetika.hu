@@ -1,0 +1,5 @@
+# Netlify & Static Host Redirects
+/arak          /arak.html          200
+/rolam         /rolam.html         200
+/adatvedelem   /adatvedelem.html   200
+/*             /404.html           404

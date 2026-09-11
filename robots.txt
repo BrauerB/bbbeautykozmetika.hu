@@ -1,3 +1,5 @@
-# Block all search engine crawlers from indexing and scanning the site
+# Allow all search engine crawlers to index the site
 User-agent: *
-Disallow: /
+Allow: /
+
+Sitemap: https://bbbeautykozmetika.hu/sitemap.xml
