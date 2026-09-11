@@ -29,9 +29,6 @@ body,
    2. PRÉMIUM FŐCÍMEK & KIEMELÉSEK (Playfair Display)
    -------------------------------------------------------------------------- */
 h1, h2, h3, h4, h5, 
-.title, 
-.page-header h1, 
-.page-header .title,
 .card-title, 
 .card-header .card-title,
 .picker__month, 
@@ -79,20 +76,15 @@ h1, h2, h3, h4, h5,
 }
 
 /* --------------------------------------------------------------------------
-   4. FEJLÉC SZEKCIÓ (Kompakt magasság az aloldalakon)
+   4. FEJLÉC SZEKCIÓ & BELÓGÓ FEJLÉC SZÖVEGEK ELTÜNTETÉSE
    -------------------------------------------------------------------------- */
-.page-header, 
-.page-header.noCover {
-  background: linear-gradient(180deg, #ffffff 0%, #f6ebe5 100%) !important;
-}
 
-.page-booking-selectEmployee-container .page-header,
-.page-booking-showServices-container .page-header,
-.page-booking-selectDate-container .page-header,
-.page-booking-guestData-container .page-header,
-#widget-booking-container .page-header {
-  min-height: 120px !important;
-  height: 120px !important;
+/* Belógó cím és alcím teljes elrejtése a fejlécből */
+.page-header .title, 
+.page-header h1,
+.page-header .booking-index-title, 
+.page-header h4.booking-index-title {
+  display: none !important;
 }
 
 .page-header:before, 
@@ -102,6 +94,30 @@ h1, h2, h3, h4, h5,
   display: none !important;
   background: transparent !important;
   opacity: 0 !important;
+}
+
+/* Főoldali fejléc (https://bbbeautykozmetika.salonic.hu/) */
+.page-isFrontPage .page-header,
+.page-booking-index-container .page-header {
+  min-height: 240px !important;
+  height: 240px !important;
+  padding-top: 100px !important;
+  background: linear-gradient(180deg, #ffffff 0%, #faf3ef 55%, #f6ebe5 100%) !important;
+  text-align: center !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+/* Aloldalak fejléce (showServices, selectEmployee, selectDate stb.) */
+#widget-booking-container:not(.page-isFrontPage) .page-header {
+  min-height: 120px !important;
+  height: 120px !important;
+  background: linear-gradient(180deg, #ffffff 0%, #f6ebe5 100%) !important;
+}
+
+#widget-booking-container:not(.page-isFrontPage) .page-header .container {
+  display: none !important;
 }
 
 /* --------------------------------------------------------------------------
@@ -354,6 +370,7 @@ h1, h2, h3, h4, h5,
    -------------------------------------------------------------------------- */
 .btn-primary, 
 .btn.btn-primary,
+.page-header .btn-index-select:first-of-type,
 .salonic-gradient-button,
 .btn-next,
 .btn-next.btn-primary {
@@ -362,21 +379,34 @@ h1, h2, h3, h4, h5,
   color: #ffffff !important;
   font-family: 'Plus Jakarta Sans', sans-serif !important;
   font-weight: 700 !important;
-  border-radius: 12px !important;
-  padding: 12px 28px !important;
-  box-shadow: 0 6px 18px rgba(184, 110, 94, 0.3) !important;
+  border-radius: 30px !important;
+  padding: 13px 32px !important;
+  box-shadow: 0 6px 20px rgba(184, 110, 94, 0.35) !important;
   border: none !important;
+  margin: 6px !important;
+  transition: all 0.25s ease !important;
+}
+
+.page-header .btn-index-select:nth-of-type(2) {
+  background-color: #ffffff !important;
+  border: 1.5px solid rgba(184, 110, 94, 0.35) !important;
+  color: #874639 !important;
+  font-family: 'Plus Jakarta Sans', sans-serif !important;
+  font-weight: 700 !important;
+  border-radius: 30px !important;
+  padding: 13px 30px !important;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05) !important;
+  margin: 6px !important;
   transition: all 0.25s ease !important;
 }
 
 .btn-primary:hover, 
 .btn.btn-primary:hover,
+.page-header .btn-index-select:hover,
 .salonic-gradient-button:hover,
 .btn-next:hover {
-  background: linear-gradient(135deg, #a35a4b 0%, #874639 100%) !important;
-  color: #ffffff !important;
-  box-shadow: 0 8px 24px rgba(184, 110, 94, 0.45) !important;
   transform: translateY(-2px) !important;
+  box-shadow: 0 8px 26px rgba(184, 110, 94, 0.45) !important;
 }
 
 /* --------------------------------------------------------------------------
