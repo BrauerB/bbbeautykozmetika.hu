@@ -1,7 +1,7 @@
 /* ==========================================================================
    BB BEAUTY KOZMETIKA - SALONIC PRÉMIUM ARCULATI STÍLUSLAP (MASTER CSS)
    Hivatalos URL: https://bbbeautykozmetika.hu/salonic.css
-   Weboldallal 100%-ban harmonizáló színek, betűtípusok és lebegő kezeléskártya
+   Weboldallal (arak.html) 100%-ban harmonizáló színek, kártyák és tipográfia
    ========================================================================== */
 
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
@@ -35,6 +35,7 @@ h1, h2, h3, h4, h5,
 .picker__year,
 #widget-booking-showServices h3,
 .service-name,
+.service-title,
 .employee-card h4,
 .card-profile .card-title a {
   font-family: 'Playfair Display', Georgia, serif !important;
@@ -76,10 +77,8 @@ h1, h2, h3, h4, h5,
 }
 
 /* --------------------------------------------------------------------------
-   4. FEJLÉC SZEKCIÓ & BELÓGÓ FEJLÉC SZÖVEGEK ELTÜNTETÉSE
+   4. FEJLÉC SZEKCIÓ & TISZTÍTÁS
    -------------------------------------------------------------------------- */
-
-/* Belógó cím és alcím teljes elrejtése a fejlécből */
 .page-header .title, 
 .page-header h1,
 .page-header .booking-index-title, 
@@ -96,7 +95,7 @@ h1, h2, h3, h4, h5,
   opacity: 0 !important;
 }
 
-/* Főoldali fejléc (https://bbbeautykozmetika.salonic.hu/) */
+/* Főoldali fejléc */
 .page-isFrontPage .page-header,
 .page-booking-index-container .page-header {
   min-height: 240px !important;
@@ -109,10 +108,10 @@ h1, h2, h3, h4, h5,
   justify-content: center !important;
 }
 
-/* Aloldalak fejléce (showServices, selectEmployee, selectDate stb.) */
+/* Aloldalak fejléce (showServices, selectEmployee stb.) */
 #widget-booking-container:not(.page-isFrontPage) .page-header {
-  min-height: 120px !important;
-  height: 120px !important;
+  min-height: 110px !important;
+  height: 110px !important;
   background: linear-gradient(180deg, #ffffff 0%, #f6ebe5 100%) !important;
 }
 
@@ -121,7 +120,169 @@ h1, h2, h3, h4, h5,
 }
 
 /* --------------------------------------------------------------------------
-   5. KIVÁLASZTOTT SZOLGÁLTATÁS LEBEGŐ KÁRTYA (selectEmployee)
+   5. SZOLGÁLTATÁS LISTA OLDAL (showServices - Pontosan mint az arak.html)
+   -------------------------------------------------------------------------- */
+#widget-booking-showServices .section {
+  padding-top: 15px !important;
+}
+
+#widget-booking-showServices h3.my-0 {
+  font-family: 'Playfair Display', Georgia, serif !important;
+  color: #251d1a !important;
+  font-size: 2.2rem !important;
+  font-weight: 700 !important;
+  text-align: center !important;
+  margin: 10px auto 25px auto !important;
+  display: block !important;
+  width: 100% !important;
+  letter-spacing: -0.3px !important;
+}
+
+#widget-booking-showServices h3.my-0::before {
+  content: '✦ ÁRLISTA & IDŐPONTFOGLALÁS ✦';
+  display: block;
+  background: #faf3ef;
+  color: #b86e5e;
+  font-family: 'Plus Jakarta Sans', sans-serif !important;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  padding: 5px 16px;
+  border-radius: 30px;
+  margin: 0 auto 10px auto;
+  width: fit-content;
+  border: 1px solid rgba(184, 110, 94, 0.2);
+}
+
+/* Keresőmező */
+#search-input {
+  border: 1.5px solid rgba(184, 110, 94, 0.25) !important;
+  border-radius: 30px !important;
+  padding: 12px 24px !important;
+  font-size: 0.95rem !important;
+  background: #ffffff !important;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03) !important;
+  color: #251d1a !important;
+}
+
+#search-input:focus {
+  border-color: #b86e5e !important;
+  box-shadow: 0 0 0 3px rgba(184, 110, 94, 0.15) !important;
+}
+
+/* Kategória Kártyák */
+.align-items-stretch.spec--services .card {
+  background: #ffffff !important;
+  border-radius: 24px !important;
+  border: 1.5px solid rgba(184, 110, 94, 0.18) !important;
+  box-shadow: 0 16px 40px rgba(184, 110, 94, 0.08), 0 2px 6px rgba(0,0,0,0.02) !important;
+  margin-bottom: 40px !important;
+  overflow: visible !important;
+}
+
+/* Kategória fejléc szalag */
+.card-header.card-header-info,
+.card-header-info {
+  background: linear-gradient(135deg, #b86e5e 0%, #a35a4b 100%) !important;
+  box-shadow: 0 8px 24px rgba(184, 110, 94, 0.3) !important;
+  border-radius: 16px !important;
+  padding: 18px 26px !important;
+  margin: -22px 18px 18px 18px !important;
+  border: none !important;
+}
+
+.card-header.card-header-info .card-title,
+.card-header.card-header-info h4,
+.list-group-item-specName div {
+  font-family: 'Playfair Display', Georgia, serif !important;
+  color: #ffffff !important;
+  font-size: 1.4rem !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.3px !important;
+  margin: 0 !important;
+}
+
+/* Egyedi Szolgáltatás Sorok */
+.service-item-container {
+  padding: 18px 24px !important;
+  margin: 8px 14px !important;
+  border-radius: 16px !important;
+  border: 1px solid rgba(184, 110, 94, 0.12) !important;
+  background-color: #ffffff !important;
+  transition: all 0.25s ease !important;
+  position: relative !important;
+}
+
+.service-item-container:hover {
+  background-color: #fdfaf8 !important;
+  border-color: rgba(184, 110, 94, 0.3) !important;
+  box-shadow: 0 6px 18px rgba(184, 110, 94, 0.08) !important;
+  transform: translateY(-2px) !important;
+}
+
+/* Szolgáltatás címe */
+.service-title,
+.service-item-container h4 {
+  font-family: 'Playfair Display', Georgia, serif !important;
+  color: #251d1a !important;
+  font-size: 1.25rem !important;
+  font-weight: 700 !important;
+  margin: 0 0 6px 0 !important;
+  letter-spacing: -0.2px !important;
+}
+
+/* Időtartam & Leírás */
+.service-item-container .text-small,
+.service-item-container .text-secondary {
+  font-size: 0.9rem !important;
+  color: #6e615c !important;
+  line-height: 1.5 !important;
+}
+
+/* Ár Tag */
+.service-item-container .text-strong {
+  font-family: 'Playfair Display', Georgia, serif !important;
+  font-size: 1.35rem !important;
+  font-weight: 700 !important;
+  color: #b86e5e !important;
+  letter-spacing: -0.2px !important;
+  display: inline-block !important;
+  margin-top: 4px !important;
+}
+
+/* Kiemelt ajánlat & Legnépszerűbb címkék */
+.label-promo,
+.badge.label-promo {
+  background: linear-gradient(135deg, #df9b8d 0%, #b86e5e 100%) !important;
+  color: #ffffff !important;
+  font-family: 'Plus Jakarta Sans', sans-serif !important;
+  font-size: 0.72rem !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.8px !important;
+  border-radius: 6px !important;
+  padding: 4px 10px !important;
+  margin-left: 8px !important;
+  vertical-align: middle !important;
+  box-shadow: 0 2px 6px rgba(184, 110, 94, 0.25) !important;
+}
+
+/* Bővebben link */
+a.show-info-popup,
+.show-info-popup {
+  color: #b86e5e !important;
+  font-weight: 700 !important;
+  text-decoration: none !important;
+  margin-left: 4px !important;
+  border-bottom: 1px dashed #b86e5e !important;
+}
+
+a.show-info-popup:hover {
+  color: #874639 !important;
+}
+
+/* --------------------------------------------------------------------------
+   6. KIVÁLASZTOTT SZOLGÁLTATÁS LEBEGŐ KÁRTYA (selectEmployee)
    -------------------------------------------------------------------------- */
 #widget-booking-selectEmployee .title.d-none,
 .page-booking-selectEmployee-container .title.d-none {
@@ -167,7 +328,7 @@ h1, h2, h3, h4, h5,
 }
 
 /* --------------------------------------------------------------------------
-   6. MUNKATÁRS KÁRTYA KÖZÉPRE IGAZÍTÁSA & PRÉMIUM DIZÁJN
+   7. MUNKATÁRS KÁRTYA KÖZÉPRE IGAZÍTÁSA & PRÉMIUM DIZÁJN
    -------------------------------------------------------------------------- */
 #widget-booking-selectEmployee .row {
   display: flex !important;
@@ -314,63 +475,31 @@ h1, h2, h3, h4, h5,
 }
 
 /* --------------------------------------------------------------------------
-   7. KATEGÓRIA FEJLÉCEK (showServices oldalon)
+   8. ALSÓ ÖSSZESÍTŐ SÁV (showServices)
    -------------------------------------------------------------------------- */
-.card-header-info,
-.card .card-header-info,
-.card-header.card-header-info,
-.card-header.bg-info {
-  background: linear-gradient(135deg, #b86e5e 0%, #a35a4b 100%) !important;
-  box-shadow: 0 6px 20px rgba(184, 110, 94, 0.28) !important;
-  border-radius: 14px !important;
-  padding: 16px 22px !important;
-  margin: -20px 15px 15px 15px !important;
-  border: none !important;
-}
-
-.card-header-info .card-title,
-.card-header.card-header-info h4,
-.card-header.card-header-info .title {
-  font-family: 'Playfair Display', Georgia, serif !important;
-  color: #ffffff !important;
-  font-size: 1.35rem !important;
-  font-weight: 600 !important;
-  letter-spacing: 0.2px !important;
-  margin: 0 !important;
-}
-
-/* --------------------------------------------------------------------------
-   8. KÁRTYÁK & SZOLGÁLTATÁS DOBOZOK
-   -------------------------------------------------------------------------- */
-.card, 
-.service-card, 
-.employee-card, 
-.list-group-item {
+#selectedServicesContainer {
   background-color: #ffffff !important;
-  border-radius: 18px !important;
-  border: 1px solid rgba(184, 110, 94, 0.14) !important;
-  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.04) !important;
+  border-top: 1.5px solid rgba(184, 110, 94, 0.2) !important;
+  box-shadow: 0 -8px 30px rgba(0, 0, 0, 0.08) !important;
+  padding: 16px 0 !important;
 }
 
-/* Kiemelt ajánlat / Népszerű címkék */
-.label-promo,
-.badge.label-promo {
-  background: linear-gradient(135deg, #df9b8d 0%, #b86e5e 100%) !important;
-  color: #ffffff !important;
-  font-size: 0.72rem !important;
+#selectedServicesContainer .label-info {
+  background-color: #faf3ef !important;
+  color: #b86e5e !important;
+  border: 1px solid rgba(184, 110, 94, 0.3) !important;
   font-weight: 700 !important;
-  text-transform: uppercase !important;
-  letter-spacing: 0.6px !important;
-  border-radius: 6px !important;
-  padding: 4px 10px !important;
+  border-radius: 8px !important;
+  padding: 6px 12px !important;
 }
 
-/* --------------------------------------------------------------------------
-   9. FŐ AKCIÓGOMBOK & TOVÁBB GOMB
-   -------------------------------------------------------------------------- */
-.btn-primary, 
-.btn.btn-primary,
-.page-header .btn-index-select:first-of-type,
+#selectedServicesContainer .price {
+  color: #b86e5e !important;
+  font-family: 'Playfair Display', Georgia, serif !important;
+  font-weight: 700 !important;
+  font-size: 1.45rem !important;
+}
+
 .salonic-gradient-button,
 .btn-next,
 .btn-next.btn-primary {
@@ -379,85 +508,23 @@ h1, h2, h3, h4, h5,
   color: #ffffff !important;
   font-family: 'Plus Jakarta Sans', sans-serif !important;
   font-weight: 700 !important;
+  font-size: 0.95rem !important;
   border-radius: 30px !important;
-  padding: 13px 32px !important;
+  padding: 14px 34px !important;
   box-shadow: 0 6px 20px rgba(184, 110, 94, 0.35) !important;
   border: none !important;
-  margin: 6px !important;
   transition: all 0.25s ease !important;
 }
 
-.page-header .btn-index-select:nth-of-type(2) {
-  background-color: #ffffff !important;
-  border: 1.5px solid rgba(184, 110, 94, 0.35) !important;
-  color: #874639 !important;
-  font-family: 'Plus Jakarta Sans', sans-serif !important;
-  font-weight: 700 !important;
-  border-radius: 30px !important;
-  padding: 13px 30px !important;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05) !important;
-  margin: 6px !important;
-  transition: all 0.25s ease !important;
-}
-
-.btn-primary:hover, 
-.btn.btn-primary:hover,
-.page-header .btn-index-select:hover,
 .salonic-gradient-button:hover,
 .btn-next:hover {
-  transform: translateY(-2px) !important;
+  background: linear-gradient(135deg, #a35a4b 0%, #874639 100%) !important;
   box-shadow: 0 8px 26px rgba(184, 110, 94, 0.45) !important;
+  transform: translateY(-2px) !important;
 }
 
 /* --------------------------------------------------------------------------
-   10. LINKEK & POPUP NYITÓK (Bővebben, részletek)
-   -------------------------------------------------------------------------- */
-a, 
-a.show-info-popup, 
-.show-info-popup,
-.card-description a {
-  color: #b86e5e !important;
-  font-weight: 600 !important;
-  text-decoration: none !important;
-  transition: color 0.2s ease !important;
-}
-
-a:hover, 
-a.show-info-popup:hover, 
-.show-info-popup:hover,
-.card-description a:hover {
-  color: #874639 !important;
-  text-decoration: underline !important;
-}
-
-/* --------------------------------------------------------------------------
-   11. ALSÓ ÖSSZESÍTŐ SÁV (showServices)
-   -------------------------------------------------------------------------- */
-#selectedServicesContainer {
-  background-color: #ffffff !important;
-  border-top: 1px solid rgba(184, 110, 94, 0.2) !important;
-  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.08) !important;
-  padding: 14px 0 !important;
-}
-
-#selectedServicesContainer .label-info {
-  background-color: #faf3ef !important;
-  color: #b86e5e !important;
-  border: 1px solid rgba(184, 110, 94, 0.3) !important;
-  font-weight: 700 !important;
-  border-radius: 6px !important;
-  padding: 4px 10px !important;
-}
-
-#selectedServicesContainer .price {
-  color: #b86e5e !important;
-  font-family: 'Playfair Display', Georgia, serif !important;
-  font-weight: 700 !important;
-  font-size: 1.35rem !important;
-}
-
-/* --------------------------------------------------------------------------
-   12. NAPTÁR & IDŐPONT KIVÁLASZTÓ (selectDate)
+   9. NAPTÁR & IDŐPONT KIVÁLASZTÓ (selectDate)
    -------------------------------------------------------------------------- */
 .picker__day--selected, 
 .picker__day--selected:hover, 
@@ -500,24 +567,7 @@ a.show-info-popup:hover,
 }
 
 /* --------------------------------------------------------------------------
-   13. KERESŐMEZŐ & BEVITELI MEZŐK
-   -------------------------------------------------------------------------- */
-.form-control,
-#search-input {
-  border: 1.5px solid rgba(184, 110, 94, 0.2) !important;
-  border-radius: 12px !important;
-  padding: 10px 16px !important;
-  color: #251d1a !important;
-}
-
-.form-control:focus,
-#search-input:focus {
-  border-color: #b86e5e !important;
-  box-shadow: 0 0 0 3px rgba(184, 110, 94, 0.15) !important;
-}
-
-/* --------------------------------------------------------------------------
-   14. FELUGRÓ MODÁLIS ABLAKOK (Részletek popup)
+   10. FELUGRÓ MODÁLIS ABLAKOK (Részletek popup)
    -------------------------------------------------------------------------- */
 .swal-modal {
   border-radius: 20px !important;
@@ -533,7 +583,7 @@ a.show-info-popup:hover,
 }
 
 /* --------------------------------------------------------------------------
-   15. LÁBLÉC
+   11. LÁBLÉC
    -------------------------------------------------------------------------- */
 .footer {
   background-color: #ffffff !important;
