@@ -20,7 +20,9 @@ p, span, li, small, label, input, button, select, textarea {
 body, 
 .salonic-app, 
 #widget-booking-container {
-  background-color: #fcf9f7 !important;
+  background-color: #faf5f2 !important;
+  background-image: radial-gradient(#e8dcd5 1.2px, transparent 1.2px) !important;
+  background-size: 24px 24px !important;
 }
 
 /* --------------------------------------------------------------------------
@@ -49,7 +51,7 @@ h1, h2, h3, h4, h5,
 .navbar, 
 .navbar.navbar-color-on-scroll {
   background-color: #ffffff !important;
-  box-shadow: 0 2px 14px rgba(0, 0, 0, 0.05) !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04) !important;
   border-bottom: 1px solid rgba(184, 110, 94, 0.12) !important;
 }
 
@@ -77,11 +79,11 @@ h1, h2, h3, h4, h5,
 }
 
 /* --------------------------------------------------------------------------
-   4. FEJLÉC SZEKCIÓ (Kompakt méret az aloldalakon)
+   4. FEJLÉC SZEKCIÓ (Kompakt magasság az aloldalakon)
    -------------------------------------------------------------------------- */
 .page-header, 
 .page-header.noCover {
-  background: linear-gradient(180deg, #ffffff 0%, #faf3ef 55%, #f6eee9 100%) !important;
+  background: linear-gradient(180deg, #ffffff 0%, #f6ebe5 100%) !important;
 }
 
 .page-booking-selectEmployee-container .page-header,
@@ -89,8 +91,8 @@ h1, h2, h3, h4, h5,
 .page-booking-selectDate-container .page-header,
 .page-booking-guestData-container .page-header,
 #widget-booking-container .page-header {
-  min-height: 130px !important;
-  height: 130px !important;
+  min-height: 120px !important;
+  height: 120px !important;
 }
 
 .page-header:before, 
@@ -109,18 +111,19 @@ h1, h2, h3, h4, h5,
 .page-booking-selectEmployee-container .title.d-none {
   display: block !important;
   background: #ffffff !important;
-  border-radius: 18px !important;
-  padding: 24px 30px !important;
-  margin: -60px auto 35px auto !important;
-  max-width: 620px !important;
+  border-radius: 24px !important;
+  padding: 26px 36px !important;
+  margin: -50px auto 26px auto !important;
+  max-width: 580px !important;
   text-align: center !important;
-  box-shadow: 0 12px 36px rgba(184, 110, 94, 0.12), 0 2px 8px rgba(0,0,0,0.04) !important;
-  border: 1px solid rgba(184, 110, 94, 0.18) !important;
+  box-shadow: 0 16px 40px rgba(184, 110, 94, 0.1), 0 2px 6px rgba(0,0,0,0.03) !important;
+  border: 1.5px solid rgba(184, 110, 94, 0.18) !important;
   position: relative !important;
   z-index: 10 !important;
   color: #8c7e77 !important;
   font-size: 0.85rem !important;
-  font-weight: 500 !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.5px !important;
 }
 
 #widget-booking-selectEmployee .title.d-none::before {
@@ -141,14 +144,161 @@ h1, h2, h3, h4, h5,
 #widget-booking-selectEmployee .title.d-none h3 {
   font-family: 'Playfair Display', Georgia, serif !important;
   color: #251d1a !important;
-  font-size: 1.65rem !important;
+  font-size: 1.7rem !important;
   font-weight: 700 !important;
   margin: 0 0 6px 0 !important;
   line-height: 1.3 !important;
 }
 
 /* --------------------------------------------------------------------------
-   6. KATEGÓRIA FEJLÉCEK (showServices oldalon)
+   6. MUNKATÁRS KÁRTYA KÖZÉPRE IGAZÍTÁSA & PRÉMIUM DIZÁJN
+   -------------------------------------------------------------------------- */
+#widget-booking-selectEmployee .row {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  margin: 0 auto !important;
+}
+
+#widget-booking-selectEmployee .col-md-4 {
+  flex: 0 0 100% !important;
+  max-width: 580px !important;
+  width: 100% !important;
+  padding: 0 10px !important;
+}
+
+.card.card-profile {
+  background: #ffffff !important;
+  border-radius: 24px !important;
+  border: 1.5px solid rgba(184, 110, 94, 0.2) !important;
+  box-shadow: 0 18px 48px rgba(184, 110, 94, 0.12), 0 4px 12px rgba(0,0,0,0.03) !important;
+  padding: 10px 28px 30px 28px !important;
+  margin-top: 35px !important;
+  transition: transform 0.25s ease, box-shadow 0.25s ease !important;
+  position: relative !important;
+}
+
+.card.card-profile:hover {
+  transform: translateY(-3px) !important;
+  box-shadow: 0 24px 56px rgba(184, 110, 94, 0.18) !important;
+}
+
+/* Profilkép avatar elegáns arany/terrakotta kerettel */
+.card-profile .card-avatar {
+  margin: -50px auto 14px auto !important;
+  width: 100px !important;
+  height: 100px !important;
+  max-width: 100px !important;
+  max-height: 100px !important;
+  border-radius: 50% !important;
+  padding: 4px !important;
+  background: #ffffff !important;
+  box-shadow: 0 10px 26px rgba(184, 110, 94, 0.25) !important;
+  border: 2.5px solid #b86e5e !important;
+}
+
+.card-profile .card-avatar img {
+  width: 100% !important;
+  height: 100% !important;
+  border-radius: 50% !important;
+  object-fit: cover !important;
+}
+
+/* Szakember neve */
+.card-profile .card-title a,
+.card-profile .card-title {
+  font-family: 'Playfair Display', Georgia, serif !important;
+  color: #251d1a !important;
+  font-size: 1.65rem !important;
+  font-weight: 700 !important;
+  text-decoration: none !important;
+}
+
+/* Szakterületek & Részletek link */
+.card-profile .card-category {
+  color: #7a6c66 !important;
+  font-size: 0.9rem !important;
+  margin-top: 4px !important;
+}
+
+.card-profile .card-description a.show-info-popup {
+  color: #b86e5e !important;
+  font-weight: 700 !important;
+  text-decoration: none !important;
+  margin-left: 6px !important;
+  padding-bottom: 1px !important;
+  border-bottom: 1px dashed #b86e5e !important;
+}
+
+.card-profile hr {
+  border: 0 !important;
+  height: 1px !important;
+  background: linear-gradient(90deg, transparent, rgba(184, 110, 94, 0.25), transparent) !important;
+  margin: 20px 0 16px 0 !important;
+}
+
+/* Időpont szekció címe */
+.card-profile .text-muted {
+  font-family: 'Plus Jakarta Sans', sans-serif !important;
+  color: #8c7e77 !important;
+  font-size: 0.78rem !important;
+  font-weight: 700 !important;
+  letter-spacing: 1.2px !important;
+  text-transform: uppercase !important;
+  margin-bottom: 14px !important;
+}
+
+/* Időpont gombok & Badgek */
+.card-profile .badge-primary,
+.card-profile .badge.badge-primary {
+  background: linear-gradient(135deg, #b86e5e 0%, #a35a4b 100%) !important;
+  color: #ffffff !important;
+  font-family: 'Plus Jakarta Sans', sans-serif !important;
+  font-weight: 700 !important;
+  font-size: 0.86rem !important;
+  padding: 11px 20px !important;
+  border-radius: 30px !important;
+  margin: 5px !important;
+  display: inline-block !important;
+  box-shadow: 0 4px 14px rgba(184, 110, 94, 0.3) !important;
+  transition: all 0.2s ease !important;
+  border: none !important;
+}
+
+.card-profile .badge-primary:hover,
+.card-profile a:hover .badge-primary {
+  background: linear-gradient(135deg, #a35a4b 0%, #874639 100%) !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 8px 24px rgba(184, 110, 94, 0.45) !important;
+}
+
+/* 'Összes időpont' gomb */
+.card-profile .badge.bg-light,
+.card-profile .badge.text-dark {
+  background: #faf3ef !important;
+  color: #874639 !important;
+  font-family: 'Plus Jakarta Sans', sans-serif !important;
+  font-weight: 700 !important;
+  font-size: 0.86rem !important;
+  padding: 11px 22px !important;
+  border-radius: 30px !important;
+  margin: 5px !important;
+  display: inline-block !important;
+  border: 1.5px solid rgba(184, 110, 94, 0.3) !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04) !important;
+  transition: all 0.2s ease !important;
+}
+
+.card-profile .badge.bg-light:hover,
+.card-profile a:hover .badge.bg-light {
+  background: #f3e5df !important;
+  border-color: #b86e5e !important;
+  color: #5c2f25 !important;
+  transform: translateY(-2px) !important;
+}
+
+/* --------------------------------------------------------------------------
+   7. KATEGÓRIA FEJLÉCEK (showServices oldalon)
    -------------------------------------------------------------------------- */
 .card-header-info,
 .card .card-header-info,
@@ -174,63 +324,16 @@ h1, h2, h3, h4, h5,
 }
 
 /* --------------------------------------------------------------------------
-   7. KÁRTYÁK & SZOLGÁLTATÁS DOBOZOK
+   8. KÁRTYÁK & SZOLGÁLTATÁS DOBOZOK
    -------------------------------------------------------------------------- */
 .card, 
 .service-card, 
 .employee-card, 
 .list-group-item {
   background-color: #ffffff !important;
-  border-radius: 16px !important;
+  border-radius: 18px !important;
   border: 1px solid rgba(184, 110, 94, 0.14) !important;
   box-shadow: 0 4px 18px rgba(0, 0, 0, 0.04) !important;
-}
-
-/* --------------------------------------------------------------------------
-   8. IDŐPONT JELVÉNYEK & BADGEK ('holnap 09:00', Promo)
-   -------------------------------------------------------------------------- */
-.badge-primary,
-.badge.badge-primary {
-  background-color: #b86e5e !important;
-  color: #ffffff !important;
-  font-family: 'Plus Jakarta Sans', sans-serif !important;
-  font-weight: 700 !important;
-  font-size: 0.78rem !important;
-  padding: 7px 13px !important;
-  border-radius: 8px !important;
-  letter-spacing: 0.3px !important;
-  box-shadow: 0 3px 10px rgba(184, 110, 94, 0.25) !important;
-  border: none !important;
-  transition: all 0.2s ease !important;
-}
-
-.badge-primary:hover,
-a:hover .badge-primary {
-  background-color: #a35a4b !important;
-  color: #ffffff !important;
-  transform: translateY(-1px) !important;
-  box-shadow: 0 5px 15px rgba(184, 110, 94, 0.35) !important;
-}
-
-/* Másodlagos jelvény ('Összes időpont') */
-.badge.bg-light,
-.badge.text-dark {
-  background-color: #faf3ef !important;
-  color: #874639 !important;
-  border: 1.5px solid rgba(184, 110, 94, 0.25) !important;
-  font-family: 'Plus Jakarta Sans', sans-serif !important;
-  font-weight: 700 !important;
-  font-size: 0.78rem !important;
-  padding: 6px 12px !important;
-  border-radius: 8px !important;
-  transition: all 0.2s ease !important;
-}
-
-.badge.bg-light:hover,
-a:hover .badge.bg-light {
-  background-color: #f3e5df !important;
-  color: #5c2f25 !important;
-  border-color: #b86e5e !important;
 }
 
 /* Kiemelt ajánlat / Népszerű címkék */
