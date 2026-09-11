@@ -1074,10 +1074,17 @@ button {
   margin-bottom: 40px;
 }
 
+.v8-top-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
 .v8-top-img-wrap {
   position: relative;
   height: 230px;
   overflow: hidden;
+  border-radius: 20px;
   background: #f0e6e0;
 }
 
@@ -1110,7 +1117,7 @@ button {
 }
 
 .v8-top-body {
-  padding: 24px 22px;
+  padding: 20px 0 0 0;
   display: flex;
   flex-direction: column;
   flex-grow: 1;
@@ -1312,6 +1319,7 @@ button {
   transition: all var(--tr-normal);
   display: flex;
   flex-direction: column;
+  height: 100%;
 }
 
 .treatment-card-item:hover {

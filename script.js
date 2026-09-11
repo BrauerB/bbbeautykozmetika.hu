@@ -215,16 +215,29 @@ document.addEventListener('DOMContentLoaded', () => {
     // Ár és Foglalás gomb
     const priceVal = document.getElementById('modalPriceVal');
     const modalBookBtn = document.getElementById('modalBookBtn');
+    const modalFooterActions = document.getElementById('modalFooterActions');
     if (priceVal) {
       if (item.variants && item.variants.length > 1) {
-        priceVal.textContent = item.variants.map(v => v.price).join(' / ');
-        if (modalBookBtn) {
-          modalBookBtn.href = 'https://bbbeautykozmetika.salonic.hu/showServices/?employeeId=33059&placeId=14908&serviceId=0';
-          modalBookBtn.textContent = 'Összes szolgáltatás megnyitása →';
+        priceVal.textContent = item.priceFormatted || `${item.variants[0].price}-tól`;
+        if (modalFooterActions) {
+          modalFooterActions.innerHTML = item.variants.map((v, idx) => `
+            <a class="btn ${idx === 0 ? 'btn-outline' : 'btn-primary'} btn-sm" href="${v.salonicUrl || item.salonicUrl}" target="_blank" rel="noopener noreferrer" style="font-size: 0.82rem; padding: 8px 14px; white-space: nowrap;">
+              ${v.name.replace(' arckezelés', '').replace(' kezelés', '').replace('hidrodermabráziós ', '')} (${v.price}) →
+            </a>
+          `).join('');
+        } else if (modalBookBtn) {
+          modalBookBtn.href = item.salonicUrl;
+          modalBookBtn.textContent = 'Időpontot kérek →';
         }
       } else {
         priceVal.textContent = item.priceFormatted || `${item.price} Ft`;
-        if (modalBookBtn) {
+        if (modalFooterActions) {
+          modalFooterActions.innerHTML = `
+            <a class="btn btn-primary" href="${item.salonicUrl || 'https://bbbeautykozmetika.salonic.hu/showServices/?employeeId=33059&placeId=14908&serviceId=0'}" target="_blank" rel="noopener noreferrer">
+              Időpontot kérek →
+            </a>
+          `;
+        } else if (modalBookBtn) {
           modalBookBtn.href = item.salonicUrl || 'https://bbbeautykozmetika.salonic.hu/showServices/?employeeId=33059&placeId=14908&serviceId=0';
           modalBookBtn.textContent = 'Időpontot kérek';
         }
