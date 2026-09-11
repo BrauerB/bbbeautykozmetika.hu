@@ -187,7 +187,7 @@ body,
   margin: 0 !important;
 }
 
-/* Szolgáltatás Sorok: TISZTA VONALAS ELVÁLASZTÁS */
+/* Szolgáltatás Sorok: TISZTA EDITORIAL LISTA ELRENDEZÉS */
 .service-item-container {
   background: transparent !important;
   border: none !important;
@@ -195,8 +195,8 @@ body,
   border-radius: 0 !important;
   box-shadow: none !important;
   margin: 0 !important;
-  padding: 18px 24px !important;
-  transition: background-color 0.2s ease !important;
+  padding: 12px 18px !important;
+  transition: background-color 0.15s ease !important;
 }
 
 .service-item-container:last-child {
@@ -209,32 +209,26 @@ body,
   box-shadow: none !important;
 }
 
-/* Szolgáltatás címe (Kifinomultabb méret) */
+/* Szolgáltatás címe */
 .service-title,
 .service-item-container h4 {
   font-family: 'Playfair Display', Georgia, serif !important;
   color: var(--bb-text) !important;
-  font-size: 1.15rem !important;
+  font-size: 1.08rem !important;
   font-weight: 600 !important;
-  margin: 0 0 4px 0 !important;
+  line-height: 1.35 !important;
+  margin: 0 !important;
 }
 
-/* Időtartam & Leírás */
-.service-item-container .text-small,
-.service-item-container .text-secondary {
-  font-size: 0.88rem !important;
-  color: var(--bb-muted) !important;
-  line-height: 1.5 !important;
-}
-
-/* Ár Tag */
+/* Ár Kiemelés */
 .service-item-container .text-strong {
   font-family: 'Plus Jakarta Sans', sans-serif !important;
-  font-size: 1.18rem !important;
+  font-size: 1.12rem !important;
   font-weight: 700 !important;
   color: var(--bb-primary) !important;
-  margin-top: 4px !important;
+  margin: 0 !important;
   display: inline-block !important;
+  letter-spacing: -0.2px !important;
 }
 
 /* Kiemelt ajánlat & Népszerű címkék */
@@ -243,14 +237,28 @@ body,
   background-color: var(--bb-primary-light) !important;
   color: var(--bb-primary-hover) !important;
   font-family: 'Plus Jakarta Sans', sans-serif !important;
-  font-size: 0.72rem !important;
+  font-size: 0.68rem !important;
   font-weight: 700 !important;
+  text-transform: uppercase !important;
   letter-spacing: 0.5px !important;
   border-radius: 6px !important;
-  padding: 3px 8px !important;
-  margin-left: 8px !important;
+  padding: 3px 7px !important;
   vertical-align: middle !important;
   box-shadow: none !important;
+}
+
+/* Időtartam & Leírás Tipográfia */
+.service-item-container div.text-secondary,
+.service-item-container div.text-small {
+  font-size: 0.85rem !important;
+  color: var(--bb-muted) !important;
+  line-height: 1.5 !important;
+  margin: 0 !important;
+}
+
+.service-description-booking-showServices {
+  color: var(--bb-muted) !important;
+  font-size: 0.85rem !important;
 }
 
 /* Bővebben link */
@@ -258,13 +266,121 @@ a.show-info-popup,
 .show-info-popup {
   color: var(--bb-primary) !important;
   font-weight: 600 !important;
-  text-decoration: none !important;
-  margin-left: 4px !important;
-  border-bottom: 1px dashed var(--bb-primary) !important;
+  text-decoration: underline !important;
+  text-underline-offset: 2px !important;
+  margin-left: 3px !important;
+  border-bottom: none !important;
 }
 
-a.show-info-popup:hover {
+a.show-info-popup:hover,
+.show-info-popup:hover {
   color: var(--bb-primary-hover) !important;
+}
+
+/* Munkatárs kiskép */
+.service-item-container .image-feed {
+  display: inline-flex !important;
+  align-items: center !important;
+  margin-top: 4px !important;
+}
+
+.service-item-container .image-feed img {
+  border-radius: 50% !important;
+  width: 24px !important;
+  height: 24px !important;
+  object-fit: cover !important;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08) !important;
+  border: 1.5px solid var(--bb-surface) !important;
+  margin: 0 !important;
+}
+
+/* DESKTOP (≥ 576px): Cím balra, Ár + Címke jobbra szinkronban */
+@media (min-width: 576px) {
+  .service-item-container label {
+    display: grid !important;
+    grid-template-columns: 1fr auto !important;
+    grid-template-areas:
+      "title price"
+      "desc  desc"
+      "extra extra" !important;
+    align-items: baseline !important;
+    column-gap: 16px !important;
+    row-gap: 4px !important;
+    padding: 0 46px 0 0 !important;
+    margin: 0 !important;
+    cursor: pointer !important;
+    width: 100% !important;
+  }
+
+  .service-item-container .service-title {
+    grid-area: title !important;
+  }
+
+  .service-item-container div.mt-2 {
+    grid-area: price !important;
+    margin: 0 !important;
+    text-align: right !important;
+    white-space: nowrap !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: flex-end !important;
+    gap: 8px !important;
+  }
+
+  .service-item-container div.text-secondary {
+    grid-area: desc !important;
+    margin: 0 !important;
+  }
+
+  .service-item-container .image-feed {
+    grid-area: extra !important;
+  }
+}
+
+/* MOBIL (< 576px): Kompakt vertikális elrendezés */
+@media (max-width: 575.98px) {
+  .service-item-container {
+    padding: 10px 14px !important;
+  }
+
+  .service-item-container label {
+    display: flex !important;
+    flex-direction: column !important;
+    padding: 0 38px 0 0 !important;
+    margin: 0 !important;
+    cursor: pointer !important;
+    width: 100% !important;
+  }
+
+  .service-item-container .service-title {
+    order: 1 !important;
+    font-size: 1.02rem !important;
+    margin: 0 0 2px 0 !important;
+  }
+
+  .service-item-container div.mt-2 {
+    order: 2 !important;
+    margin: 2px 0 3px 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+  }
+
+  .service-item-container .text-strong {
+    font-size: 1.08rem !important;
+  }
+
+  .service-item-container div.text-secondary {
+    order: 3 !important;
+    font-size: 0.82rem !important;
+    line-height: 1.45 !important;
+    margin: 0 !important;
+  }
+
+  .service-item-container .image-feed {
+    order: 4 !important;
+    margin-top: 3px !important;
+  }
 }
 
 /* --------------------------------------------------------------------------
