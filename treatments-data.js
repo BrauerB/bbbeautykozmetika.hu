@@ -19,7 +19,7 @@ const TREATMENTS_DATA = [
         name: "1 alkalom (Teljes kezelés)",
         duration: "60 perc",
         price: "19 000 Ft",
-        salonicUrl: "https://bbbeautykozmetika.salonic.hu/showServices/?employeeId=33059&placeId=14908&serviceId=0",
+        salonicUrl: "https://bbbeautykozmetika.salonic.hu/selectDate/?employeeId=33059&placeId=14908&serviceId=481673&back=/selectEmployee/?placeId=14908&serviceId=481673",
         btnText: "Időpont foglalása →"
       },
       {
@@ -27,13 +27,13 @@ const TREATMENTS_DATA = [
         duration: "5 × 60 perc",
         price: "85 000 Ft (17 000 Ft / alkalom)",
         note: "✦ 10 000 Ft kúra-megtakarítás! A kúra részleteit és az időpontok ütemezését az 1. kezelés alkalmával személyre szabottan egyeztetjük a bőr állapotához igazítva.",
-        salonicUrl: "https://bbbeautykozmetika.salonic.hu/showServices/?employeeId=33059&placeId=14908&serviceId=0",
+        salonicUrl: "https://bbbeautykozmetika.salonic.hu/selectDate/?employeeId=33059&placeId=14908&serviceId=481673&back=/selectEmployee/?placeId=14908&serviceId=481673",
         btnText: "1. alkalom foglalása →"
       }
     ],
     isTop4: true,
     topRank: 1,
-    salonicUrl: "https://bbbeautykozmetika.salonic.hu/showServices/?employeeId=33059&placeId=14908&serviceId=0",
+    salonicUrl: "https://bbbeautykozmetika.salonic.hu/selectDate/?employeeId=33059&placeId=14908&serviceId=481673&back=/selectEmployee/?placeId=14908&serviceId=481673",
     image: "images/bbbeauty-bright-formula-folthalvanyito-kezeles-1200.jpg",
     tagline: "Intenzív hámlasztás és halványító hatóanyagok a Vagheggi professzionális protokolljával: frissebb, simább és egységesebb bőrkép a pigmentfoltok ellen.",
     shortDesc: "Bright Formula – intenzív folthalványító & bőrmegújító kezelés pigmentfoltokra, egyenetlen bőrtónusra és fakó, megújulásra váró bőrre.",
