@@ -432,4 +432,44 @@ document.addEventListener('DOMContentLoaded', () => {
 
     startSlider();
   }
+
+  // 9. Google Ads & GA4 Konverzió és Eseménykövetés
+  // Telefonhívás kattintás mérése (Google Ads és GA4)
+  document.querySelectorAll('a[href^="tel:"]').forEach(telLink => {
+    telLink.addEventListener('click', () => {
+      const phoneNumber = telLink.getAttribute('href').replace('tel:', '');
+      if (typeof gtag === 'function') {
+        // GA4 telefonhívás esemény
+        gtag('event', 'phone_call_click', {
+          event_category: 'Contact',
+          event_label: phoneNumber,
+          phone_number: phoneNumber
+        });
+        // Google Ads konverzió
+        gtag('event', 'conversion', {
+          'send_to': 'AW-18446564317'
+        });
+      }
+    });
+  });
+
+  // Salonic időpontfoglalás kattintás mérése
+  document.querySelectorAll('a[href*="salonic.hu"]').forEach(bookLink => {
+    bookLink.addEventListener('click', () => {
+      const btnText = bookLink.textContent.trim() || 'Időpontfoglalás';
+      const targetUrl = bookLink.getAttribute('href');
+      if (typeof gtag === 'function') {
+        // GA4 foglalás kezdeményezés esemény
+        gtag('event', 'begin_checkout', {
+          event_category: 'Salonic Booking',
+          event_label: btnText,
+          booking_url: targetUrl
+        });
+        gtag('event', 'salonic_booking_click', {
+          event_category: 'Salonic Booking',
+          event_label: btnText
+        });
+      }
+    });
+  });
 });
