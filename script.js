@@ -105,9 +105,10 @@ document.addEventListener('DOMContentLoaded', () => {
             <div class="modal-pricing-card-info">
               <strong class="modal-pricing-variant-name">${v.name}</strong>
               <span class="modal-pricing-variant-meta">⏱ ${v.duration} · <span style="font-weight: 700; color: var(--primary);">${v.price}</span></span>
+              ${v.note ? `<span style="display: block; font-size: 0.78rem; color: var(--text-muted); margin-top: 3px; line-height: 1.4;">${v.note}</span>` : ''}
             </div>
-            <a href="${v.salonicUrl || item.salonicUrl || 'https://bbbeautykozmetika.salonic.hu/showServices/?employeeId=33059&placeId=14908&serviceId=0'}" target="_blank" rel="noopener noreferrer" class="btn-table-book" style="padding: 6px 14px; font-size: 0.80rem;">
-              Foglalás →
+            <a href="${v.salonicUrl || item.salonicUrl || 'https://bbbeautykozmetika.salonic.hu/showServices/?employeeId=33059&placeId=14908&serviceId=0'}" target="_blank" rel="noopener noreferrer" class="btn-table-book" style="padding: 6px 14px; font-size: 0.80rem; white-space: nowrap;">
+              ${v.btnText || 'Foglalás →'}
             </a>
           </div>
         `).join('');
@@ -165,8 +166,9 @@ document.addEventListener('DOMContentLoaded', () => {
     // Lépések / Változatok
     const stepsWrap = document.getElementById('modalStepsContainer');
     if (stepsWrap) {
-      if (item.variants && item.variants.length > 0) {
-        stepsWrap.innerHTML = item.variants.map((v, vIdx) => `
+      const hasVariantSteps = item.variants && item.variants.some(v => Array.isArray(v.steps) && v.steps.length > 0);
+      if (hasVariantSteps) {
+        stepsWrap.innerHTML = item.variants.filter(v => Array.isArray(v.steps) && v.steps.length > 0).map((v, vIdx) => `
           <div class="modal-variant-box" style="${vIdx > 0 ? 'margin-top: 16px;' : ''}">
             <div class="modal-variant-header">
               <div>
@@ -174,7 +176,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 <span class="modal-variant-meta">Időtartam: ${v.duration} · Ár: ${v.price}</span>
               </div>
               <a href="${v.salonicUrl || item.salonicUrl || 'https://bbbeautykozmetika.salonic.hu/showServices/?employeeId=33059&placeId=14908&serviceId=0'}" target="_blank" rel="noopener noreferrer" class="btn-table-book" style="padding: 5px 12px; font-size: 0.78rem;">
-                Foglalás →
+                ${v.btnText || 'Foglalás →'}
               </a>
             </div>
             <div class="modal-step-list">
@@ -187,7 +189,7 @@ document.addEventListener('DOMContentLoaded', () => {
             </div>
           </div>
         `).join('');
-      } else if (item.steps) {
+      } else if (Array.isArray(item.steps) && item.steps.length > 0) {
         stepsWrap.innerHTML = `
           <div class="modal-step-list">
             ${item.steps.map((st, sIdx) => `
@@ -198,6 +200,8 @@ document.addEventListener('DOMContentLoaded', () => {
             `).join('')}
           </div>
         `;
+      } else {
+        stepsWrap.innerHTML = '';
       }
     }
 

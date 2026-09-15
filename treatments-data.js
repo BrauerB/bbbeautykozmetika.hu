@@ -14,10 +14,22 @@ const TREATMENTS_DATA = [
     duration: "kb. 60 perc",
     price: 19000,
     priceFormatted: "19 000 Ft",
-    priceDetails: "1 alkalom (60 perc): 19.000 Ft · 5 alkalmas kúra: 85.000 Ft",
     variants: [
-      { name: "1 alkalom (teljes kezelés)", duration: "60 perc", price: "19 000 Ft", salonicUrl: "https://bbbeautykozmetika.salonic.hu/showServices/?employeeId=33059&placeId=14908&serviceId=0" },
-      { name: "5 alkalmas intenzív kúra (kedvezménnyel)", duration: "5 × 60 perc", price: "85 000 Ft (17 000 Ft/alkalom)", salonicUrl: "https://bbbeautykozmetika.salonic.hu/showServices/?employeeId=33059&placeId=14908&serviceId=0" }
+      {
+        name: "1 alkalom (Teljes kezelés)",
+        duration: "60 perc",
+        price: "19 000 Ft",
+        salonicUrl: "https://bbbeautykozmetika.salonic.hu/showServices/?employeeId=33059&placeId=14908&serviceId=0",
+        btnText: "Időpont foglalása →"
+      },
+      {
+        name: "5 alkalmas intenzív kúrakedvezmény",
+        duration: "5 × 60 perc",
+        price: "85 000 Ft (17 000 Ft / alkalom)",
+        note: "✦ 10 000 Ft kúra-megtakarítás! A kúra részleteit és az időpontok ütemezését az 1. kezelés alkalmával személyre szabottan egyeztetjük a bőr állapotához igazítva.",
+        salonicUrl: "https://bbbeautykozmetika.salonic.hu/showServices/?employeeId=33059&placeId=14908&serviceId=0",
+        btnText: "1. alkalom foglalása →"
+      }
     ],
     isTop4: true,
     topRank: 1,
