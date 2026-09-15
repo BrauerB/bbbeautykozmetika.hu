@@ -5,18 +5,68 @@
 
 const TREATMENTS_DATA = [
   {
+    id: "bright-formula",
+    name: "Bright Formula – Intenzív folthalványító & bőrmegújító kezelés",
+    subtitle: "Vagheggi intenzív hámlasztás & pigmentfolt halványítás",
+    category: "bormegujitas",
+    categoryName: "Bőrmegújítás & Halványítás",
+    badge: "⭐ Újdonság · Kiemelt Kúra",
+    duration: "kb. 60 perc",
+    price: 19000,
+    priceFormatted: "19 000 Ft",
+    priceDetails: "1 alkalom (60 perc): 19.000 Ft · 5 alkalmas kúra: 85.000 Ft",
+    variants: [
+      { name: "1 alkalom (teljes kezelés)", duration: "60 perc", price: "19 000 Ft", salonicUrl: "https://bbbeautykozmetika.salonic.hu/showServices/?employeeId=33059&placeId=14908&serviceId=0" },
+      { name: "5 alkalmas intenzív kúra (kedvezménnyel)", duration: "5 × 60 perc", price: "85 000 Ft (17 000 Ft/alkalom)", salonicUrl: "https://bbbeautykozmetika.salonic.hu/showServices/?employeeId=33059&placeId=14908&serviceId=0" }
+    ],
+    isTop4: true,
+    topRank: 1,
+    salonicUrl: "https://bbbeautykozmetika.salonic.hu/showServices/?employeeId=33059&placeId=14908&serviceId=0",
+    image: "images/bbbeauty-bright-formula-folthalvanyito-kezeles-1200.jpg",
+    tagline: "Intenzív hámlasztás és halványító hatóanyagok a Vagheggi professzionális protokolljával: frissebb, simább és egységesebb bőrkép a pigmentfoltok ellen.",
+    shortDesc: "Bright Formula – intenzív folthalványító & bőrmegújító kezelés pigmentfoltokra, egyenetlen bőrtónusra és fakó, megújulásra váró bőrre.",
+    fullDesc: "A Vagheggi Bright Formula professzionális protokollja intenzív hámlasztással és halványító hatóanyagokkal támogatja a bőr megújulását. A kezelés segít javítani az egyenetlen bőrtónus és a pigmentfoltok megjelenését, miközben frissebb, simább és ragyogóbb bőrképet eredményez. A kezelést mindig a bőr aktuális állapotához igazítom, a professzionális protokoll része pedig a bőr megnyugtatása, hidratálása és a megfelelő fényvédelem is.",
+    targetAudience: [
+      "Pigmentfoltok és napfoltok esetén",
+      "Egyenetlen bőrtónusra",
+      "Fakó, fáradt bőrre",
+      "Egyenetlen bőrfelszínre",
+      "Intenzívebb bőrmegújításra"
+    ],
+    ingredients: [
+      { name: "Vagheggi Bright Formula Hámlasztó Komplex", benefit: "Intenzív, ellenőrzött bőrmegújítás, elhalt hámsejtek kíméletes eltávolítása" },
+      { name: "Célzott Folthalványító Hatóanyagok", benefit: "Melanintermelés harmonizálása és meglévő foltok látványos halványítása" },
+      { name: "Regeneráló & Nyugtató Bőrkomfort Maszk", benefit: "Azonnali bőrnyugtatás, gyulladáscsökkentés és lipidpótlás" },
+      { name: "Magas Faktorszámú Fényvédelem & Hidratálás", benefit: "Bőrvédelem a fénykárosodás és az új foltok kialakulása ellen" }
+    ],
+    feelings: [
+      "Azonnal simább, finomabb és selymes tapintású bőrfelszín",
+      "Láthatóan üdébb, tisztább és egységesebb arcszín",
+      "Kellemesen felfrissült, fellélegzett bőrérzet",
+      "Kúra esetén fokozatosan halványuló pigmentfoltok és ragyogó tónus"
+    ],
+    steps: [
+      "1. Bőrdiagnosztika és előkészítés – Aktuális bőrállapot felmérése, gyengéd letisztítás",
+      "2. Bright Formula Intenzív Hámlasztás – Személyre szabott savas bőrmegújító protokoll",
+      "3. Folthalványító Hatóanyag-bevitel – Célzott pigmentfolt-csökkentő koncentrátum",
+      "4. Bőrmegnyugtatás & Mélyhidratálás – Regeneráló, tápláló maszk a bőrkomfortért",
+      "5. Befejező ápolás & Fényvédelem – Magas faktorszámú professzionális SPF védelem"
+    ],
+    homeCare: "Kúrában ajánlott. A látványosabb és tartósabb eredmény érdekében 5 alkalmas kúraként javasolt, a kezelések közötti időt a bőr állapotához igazítva. Fontos: a kúra alatt és azt követően a megfelelő, magas faktorszámú fényvédelem elengedhetetlen."
+  },
+  {
     id: "oxytech-glow",
     name: "BBbeauty OxyTech Glow",
     subtitle: "CO₂ oxigenizálás, ultrahang & RF feszesítés",
-    category: "special",
-    categoryName: "Speciális & Gépi Kezelések",
-    badge: "⭐ Újdonság",
+    category: "bormegujitas special",
+    categoryName: "Bőrmegújítás & Gépi Kezelések",
+    badge: "⭐ Csúcs-technológia",
     duration: "60 perc",
     price: 29000,
     priceFormatted: "29 000 Ft",
     priceDetails: "1 alkalom (60 perc): 29.000 Ft · 5 alkalmas kúra ajánlott",
-    isTop4: true,
-    topRank: 1,
+    isTop4: false,
+    topRank: 2,
     salonicUrl: "https://bbbeautykozmetika.salonic.hu/selectEmployee/?placeId=14908&serviceId=480621",
     image: "images/bbbeauty-oxytech-glow-arckezeles-szigetszentmiklos-1200.jpg",
     tagline: "Ragyogóbb, frissebb és hidratáltabb bőr egy komplex kezelésben: CO₂ kapszulás eljárás, ultrahangos hatóanyag-bevitel és rádiófrekvenciás feszesítés.",
@@ -312,8 +362,8 @@ const TREATMENTS_DATA = [
     id: "hydraglow-arckezeles",
     name: "Hydraglow hidrodermabráziós arckezelés",
     subtitle: "Vortex hidrafacial mélytisztítás & hatóanyag-bevitel",
-    category: "special",
-    categoryName: "Gépi Kezelések",
+    category: "bormegujitas special",
+    categoryName: "Bőrmegújítás & Gépi Kezelések",
     badge: "Top Újdonság",
     duration: "50–90 perc",
     price: 23000,

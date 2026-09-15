@@ -3,9 +3,13 @@
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://bbbeautykozmetika.hu/</loc>
-    <lastmod>2026-09-10</lastmod>
+    <lastmod>2026-09-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://bbbeautykozmetika.hu/images/bbbeauty-bright-formula-folthalvanyito-kezeles-1200.jpg</image:loc>
+      <image:title>BBbeauty Kozmetika Szigetszentmiklós - Bright Formula Folthalványító és Hámlasztó Kezelés</image:title>
+    </image:image>
     <image:image>
       <image:loc>https://bbbeautykozmetika.hu/images/bbbeauty-oxytech-glow-arckezeles-szigetszentmiklos-1200.jpg</image:loc>
       <image:title>BBbeauty Kozmetika Szigetszentmiklós - OxyTech Glow Arckezelés</image:title>
@@ -13,7 +17,7 @@
   </url>
   <url>
     <loc>https://bbbeautykozmetika.hu/arak.html</loc>
-    <lastmod>2026-09-10</lastmod>
+    <lastmod>2026-09-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
