@@ -191,6 +191,7 @@
 <!-- ================= MAIN PRICE CONTENT ================= -->
 <section class="site-section price-content-section" style="background: var(--bg-main);">
 <div class="container">
+
 <!-- 01 — ELSŐ LÉPÉS NÁLUNK -->
 <div class="price-section-box" id="elso-lepes" style="border: 1.5px solid rgba(184, 110, 94, 0.3); background: linear-gradient(135deg, #ffffff 0%, #faf3ee 100%);">
 <div class="price-section-head">
@@ -742,8 +743,32 @@
 </div>
 </div>
 </div>
+<!-- Floating Multi-Service Booking Bar -->
+<div id="multiBookingBar" class="multi-booking-bar" aria-live="polite">
+  <div class="multi-booking-container">
+    <div class="multi-booking-info">
+      <div class="multi-booking-badge">
+        <span class="pulse-dot"></span>
+        <span id="multiBookingCount">0</span> kezelés kiválasztva
+      </div>
+      <div class="multi-booking-meta">
+        <span id="multiBookingDuration" class="meta-duration">⏱ 0 perc</span>
+        <span class="meta-divider">|</span>
+        <span id="multiBookingPrice" class="meta-price">0 Ft</span>
+      </div>
+    </div>
+
+    <div class="multi-booking-actions">
+      <button id="multiBookingClearBtn" class="btn-multi-clear" type="button" title="Kijelölések törlése">Mégse</button>
+      <a id="multiBookingSubmitBtn" class="btn-multi-submit" href="#" target="_blank" rel="noopener noreferrer">
+        Tovább a foglaláshoz →
+      </a>
+    </div>
+  </div>
+</div>
+
 <!-- Scripts -->
 <script src="treatments-data.js?v=8.1"></script>
-<script src="script.js?v=8.1"></script>
+<script src="script.js?v=8.2"></script>
 </body>
 </html>

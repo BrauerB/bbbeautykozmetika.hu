@@ -477,4 +477,239 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   });
+
+  // =========================================================================
+  // 10. Multi-Service Booking System (Több szolgáltatás együttes foglalása)
+  // =========================================================================
+  const KNOWN_SERVICE_DURATIONS = {
+    "481673": 60, // Bright Formula
+    "479899": 45, // Bőrdiagnosztika
+    "480624": 40, // Frissítő arc-nyak-dekoltázs masszázs
+    "479903": 90, // Tini mélytisztítás
+    "479904": 120, // Teljes mélytisztítás
+    "479905": 60, // Akné 60
+    "479906": 90, // Akné 90
+    "479907": 60, // Glow 60
+    "479908": 90, // Glow 90
+    "479909": 60, // Érzékeny 60
+    "479910": 90, // Érzékeny 90
+    "479911": 60, // Kombinált 60
+    "479912": 90, // Kombinált 90
+    "479913": 60, // Anti-aging 60
+    "479914": 90, // Anti-aging 90
+    "480621": 60, // OxyTech Glow
+    "480622": 50, // Hydraglow
+    "480623": 90, // Hydraglow prémium
+    "479955": 60, // Carboxy
+    "479956": 60, // Tű nélküli mezo
+    "479957": 30, // Hamupipőke
+    "479960": 60, // Pilla lifting
+    "479961": 60, // Pilla lifting + festés
+    "479962": 30, // Szemöldök styling
+    "479963": 30, // Szemöldök styling + festés
+    "479964": 45, // Szemöldök laminálás
+    "479965": 60, // Szemöldök laminálás + festés
+    "479966": 15, // Festések
+    "479967": 15, // Szemöldök igazítás
+    "479984": 10, // Bajusz
+    "479985": 15, // Pajesz
+    "479999": 15, // Szakáll
+    "479986": 15, // Hónalj
+    "479987": 20, // Kar könyékig
+    "479988": 30, // Kar teljes
+    "479989": 20, // Has
+    "479990": 25, // Mellkas
+    "479991": 20, // Hát felső
+    "479992": 30, // Teljes hát
+    "479993": 20, // Bikini vonal
+    "479994": 25, // Comb
+    "479995": 25, // Láb térdig
+    "479996": 45, // Teljes láb
+    "479997": 30, // Női intim
+    "479998": 40  // Női intim + fenék
+  };
+
+  const selectedServices = new Map(); // id -> { id, name, price, duration, priceFormatted }
+  const serviceMetadataStore = new Map(); // id -> { id, name, price, duration, priceFormatted }
+
+  function extractServiceId(href) {
+    if (!href) return null;
+    const match = href.match(/serviceId=([0-9,]+)/);
+    if (match && match[1] !== '0') return match[1];
+    return null;
+  }
+
+  function parsePrice(priceStr) {
+    if (!priceStr) return 0;
+    return parseInt(priceStr.replace(/[^0-9]/g, ''), 10) || 0;
+  }
+
+  function parseDuration(durationStr, sId) {
+    if (sId && KNOWN_SERVICE_DURATIONS[sId]) {
+      return KNOWN_SERVICE_DURATIONS[sId];
+    }
+    if (!durationStr) return 30;
+    const match = durationStr.match(/(\d+)/);
+    return match ? parseInt(match[1], 10) : 30;
+  }
+
+  function updateMultiBookingUI() {
+    // 1. Frissítjük az összes táblázatbeli 'Kiválasztom' gombot és a sorok kijelölését
+    document.querySelectorAll('.btn-table-select').forEach(btn => {
+      const sId = btn.getAttribute('data-id');
+      const isSelected = sId && selectedServices.has(sId);
+      if (isSelected) {
+        btn.classList.add('selected');
+        btn.innerHTML = '✓ Kiválasztva';
+        btn.closest('tr')?.classList.add('row-selected');
+      } else {
+        btn.classList.remove('selected');
+        btn.innerHTML = '＋ Kiválasztom';
+        btn.closest('tr')?.classList.remove('row-selected');
+      }
+    });
+
+    // 2. Számítások
+    const totalCount = selectedServices.size;
+    let totalPrice = 0;
+    let totalDuration = 0;
+
+    selectedServices.forEach(item => {
+      totalPrice += item.price;
+      totalDuration += item.duration;
+    });
+
+    const countEl = document.getElementById('multiBookingCount');
+    const btnCountEl = document.getElementById('multiBookingBtnCount');
+    const durationEl = document.getElementById('multiBookingDuration');
+    const priceEl = document.getElementById('multiBookingPrice');
+    const submitBtn = document.getElementById('multiBookingSubmitBtn');
+    const bar = document.getElementById('multiBookingBar');
+
+    if (countEl) {
+      countEl.textContent = `${totalCount}`;
+    }
+    if (btnCountEl) {
+      btnCountEl.textContent = `${totalCount}`;
+    }
+
+    if (durationEl) {
+      let durText = '';
+      if (totalDuration >= 60) {
+        const hours = Math.floor(totalDuration / 60);
+        const mins = totalDuration % 60;
+        durText = mins > 0 ? `⏱ ${hours} óra ${mins} perc` : `⏱ ${hours} óra`;
+      } else {
+        durText = `⏱ ${totalDuration} perc`;
+      }
+      durationEl.textContent = durText;
+    }
+
+    if (priceEl) {
+      const formattedPrice = new Intl.NumberFormat('hu-HU').format(totalPrice);
+      priceEl.textContent = `Összesen: ${formattedPrice} Ft`;
+    }
+
+    // 3. Salonic Kombinált URL generálása
+    if (submitBtn) {
+      if (totalCount > 0) {
+        const ids = Array.from(selectedServices.keys()).join(',');
+        submitBtn.href = `https://bbbeautykozmetika.salonic.hu/selectDate/?employeeId=33059&placeId=14908&serviceId=${ids}&back=/selectEmployee/?placeId=14908&serviceId=${ids}`;
+      } else {
+        submitBtn.href = '#';
+      }
+    }
+
+    // 4. Lebegő sáv és body padding kezelése
+    if (bar) {
+      if (totalCount > 0) {
+        bar.classList.add('visible');
+        document.body.classList.add('has-multi-selection');
+      } else {
+        bar.classList.remove('visible');
+        document.body.classList.remove('has-multi-selection');
+      }
+    }
+  }
+
+  function toggleServiceSelection(sId) {
+    if (!sId) return;
+    if (selectedServices.has(sId)) {
+      selectedServices.delete(sId);
+    } else {
+      const meta = serviceMetadataStore.get(sId);
+      if (meta) {
+        selectedServices.set(sId, meta);
+      }
+    }
+    updateMultiBookingUI();
+  }
+
+  // Táblázat sorok automatikus felvértezése: a 'Foglalás' gomb helyett '＋ Kiválasztom' gomb kerül be
+  const priceRows = document.querySelectorAll('table.price-list-table tr');
+  priceRows.forEach(row => {
+    const bookLink = row.querySelector('.btn-table-book');
+    if (!bookLink) return;
+
+    const href = bookLink.getAttribute('href');
+    const sId = extractServiceId(href);
+    if (!sId) return;
+
+    const nameEl = row.querySelector('.price-item-name');
+    const name = nameEl ? nameEl.textContent.trim() : 'Szolgáltatás';
+
+    const priceEl = row.querySelector('.price-item-val');
+    const priceFormatted = priceEl ? priceEl.textContent.trim() : '';
+    const price = parsePrice(priceFormatted);
+
+    const durEl = row.querySelector('.price-item-duration');
+    const durationStr = durEl ? durEl.textContent.trim() : '';
+    const duration = parseDuration(durationStr, sId);
+
+    // Eltároljuk az adatokat a memóriában
+    serviceMetadataStore.set(sId, {
+      id: sId,
+      name: name,
+      price: price,
+      duration: duration,
+      priceFormatted: priceFormatted
+    });
+
+    // Létrehozzuk az elegáns '＋ Kiválasztom' gombot a régi Foglalás link helyére
+    const selectBtn = document.createElement('button');
+    selectBtn.type = 'button';
+    selectBtn.className = 'btn-table-select';
+    selectBtn.setAttribute('data-id', sId);
+    selectBtn.setAttribute('title', 'Kezelés hozzáadása a foglalási csomaghoz');
+    selectBtn.innerHTML = '＋ Kiválasztom';
+
+    selectBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      toggleServiceSelection(sId);
+    });
+
+    // Lecseréljük a Foglalás linket
+    const actionsCell = row.querySelector('.table-actions-cell');
+    if (actionsCell) {
+      bookLink.replaceWith(selectBtn);
+    } else {
+      const bookTd = row.querySelector('.price-item-book');
+      if (bookTd) {
+        bookTd.innerHTML = '';
+        bookTd.appendChild(selectBtn);
+      }
+    }
+  });
+
+  // Lebegő sáv eseménykezelők
+  const clearBtn = document.getElementById('multiBookingClearBtn');
+  if (clearBtn) {
+    clearBtn.addEventListener('click', () => {
+      selectedServices.clear();
+      updateMultiBookingUI();
+    });
+  }
 });
+
+

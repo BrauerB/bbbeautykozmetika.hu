@@ -4168,3 +4168,282 @@ button {
     width: 100%;
   }
 }
+
+/* ==========================================================================
+   MULTI-SERVICE BOOKING SYSTEM ("＋ Kiválasztom → ✓ Kiválasztva")
+   ========================================================================== */
+
+/* Page padding when floating bottom bar is visible */
+body.has-multi-selection {
+  padding-bottom: 105px !important;
+}
+
+/* Single Select Button on Table Rows */
+.btn-table-select {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  background: #ffffff;
+  color: var(--primary);
+  border: 1.5px solid var(--primary);
+  font-family: var(--font-sans);
+  font-size: 0.84rem;
+  font-weight: 600;
+  padding: 7px 16px;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  white-space: nowrap;
+  user-select: none;
+  text-decoration: none;
+}
+
+.btn-table-select:hover {
+  background: var(--primary-light);
+  transform: translateY(-1px);
+}
+
+.btn-table-select.selected {
+  background: var(--primary);
+  color: #ffffff;
+  border-color: var(--primary);
+  box-shadow: 0 4px 14px rgba(184, 110, 94, 0.38);
+}
+
+/* Row active highlight state */
+.price-list-table tr.row-selected {
+  background: rgba(184, 110, 94, 0.075) !important;
+  border-left: 3px solid var(--primary);
+}
+
+.price-list-table tr {
+  transition: background 0.25s ease, border-left 0.25s ease;
+}
+
+/* Modal Multi-Select Button */
+.btn-modal-add {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  background: #ffffff;
+  color: var(--primary);
+  border: 1.5px solid var(--primary);
+  font-family: var(--font-sans);
+  font-size: 0.88rem;
+  font-weight: 600;
+  padding: 9px 16px;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin-right: 8px;
+}
+
+.btn-modal-add:hover {
+  background: var(--primary-light);
+}
+
+.btn-modal-add.selected {
+  background: var(--primary);
+  color: #ffffff;
+}
+
+/* Floating Sticky Multi-Booking Bar */
+.multi-booking-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1050;
+  background: rgba(31, 26, 24, 0.96);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border-top: 1.5px solid rgba(184, 110, 94, 0.4);
+  box-shadow: 0 -8px 30px rgba(0, 0, 0, 0.35);
+  transform: translateY(120%);
+  opacity: 0;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
+  padding: 14px 24px;
+  color: #ffffff;
+}
+
+.multi-booking-bar.visible {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.multi-booking-container {
+  max-width: 1140px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.multi-booking-info {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.multi-booking-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(184, 110, 94, 0.25);
+  border: 1px solid rgba(184, 110, 94, 0.5);
+  padding: 5px 14px;
+  border-radius: 50px;
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #f5ded7;
+}
+
+.pulse-dot {
+  width: 8px;
+  height: 8px;
+  background: #22c55e;
+  border-radius: 50%;
+  display: inline-block;
+  box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7);
+  animation: pulseGreen 2s infinite;
+}
+
+@keyframes pulseGreen {
+  0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7); }
+  70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(34, 197, 94, 0); }
+  100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); }
+}
+
+.multi-booking-meta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 0.94rem;
+}
+
+.multi-booking-meta .meta-duration {
+  color: #e5deda;
+  font-weight: 500;
+}
+
+.multi-booking-meta .meta-divider {
+  color: rgba(255, 255, 255, 0.25);
+}
+
+.multi-booking-meta .meta-price {
+  color: #fca5a5;
+  font-weight: 700;
+  font-size: 1.18rem;
+}
+
+.multi-booking-actions {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-shrink: 0;
+}
+
+.btn-multi-clear {
+  background: transparent;
+  color: #a89f9a;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  font-family: var(--font-sans);
+  font-size: 0.84rem;
+  font-weight: 500;
+  padding: 8px 14px;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-multi-clear:hover {
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.btn-multi-submit {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: linear-gradient(135deg, #b86e5e 0%, #a35a4b 100%);
+  color: #ffffff !important;
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  font-weight: 700;
+  padding: 10px 24px;
+  border-radius: 50px;
+  box-shadow: 0 4px 18px rgba(184, 110, 94, 0.45);
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  white-space: nowrap;
+}
+
+.btn-multi-submit:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px rgba(184, 110, 94, 0.6);
+  background: linear-gradient(135deg, #c47665 0%, #a35a4b 100%);
+}
+
+/* Mobile Floating Card Layout */
+@media (max-width: 767px) {
+  body.has-multi-selection {
+    padding-bottom: 145px !important;
+  }
+
+  .multi-booking-bar {
+    padding: 14px 16px;
+    padding-bottom: calc(14px + env(safe-area-inset-bottom, 0px));
+    border-radius: 20px 20px 0 0;
+  }
+
+  .multi-booking-container {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+  }
+
+  .multi-booking-info {
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .multi-booking-badge {
+    padding: 4px 10px;
+    font-size: 0.82rem;
+  }
+
+  .multi-booking-meta {
+    font-size: 0.88rem;
+  }
+
+  .multi-booking-meta .meta-price {
+    font-size: 1.08rem;
+  }
+
+  .multi-booking-actions {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 10px;
+    width: 100%;
+  }
+
+  .btn-multi-clear {
+    padding: 11px 14px;
+    font-size: 0.82rem;
+  }
+
+  .btn-multi-submit {
+    justify-content: center;
+    padding: 11px 16px;
+    font-size: 0.92rem;
+  }
+}
+
+
+
